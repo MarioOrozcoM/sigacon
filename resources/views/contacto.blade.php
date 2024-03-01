@@ -33,7 +33,7 @@
 <div class="flex justify-center items-center h-full">
   <div class="bg-white p-8 rounded-lg shadow-lg overflow-y-auto max-h-full">
     <h2 class="text-2xl font-semibold mb-4">Formulario de Contacto</h2>
-    <form id="contactForm" action="https://formsubmit.co/morozcomunoz@gmail.com" method="POST">
+    <form id="contactForm" action="https://formsubmit.co/f11c16f2edc6731c47de02c711fd45a2" method="POST">
       <div class="mb-4">
         <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
         <input type="text" id="name" name="name" class="form-input mt-1 block w-full" required>
@@ -50,7 +50,10 @@
         <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
         <textarea id="message" name="message" class="form-textarea mt-1 block w-full" rows="4" required></textarea>
       </div>
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button>
+      <!-- <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button> -->
+      <input type="submit" value="Enviar" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <!-- <input type="hidden" name="_next" value="http://127.0.0.1:8000/">
+      <input type="hidden" name="_captcha" value="false"> -->
     </form>
   </div>
 </div>
