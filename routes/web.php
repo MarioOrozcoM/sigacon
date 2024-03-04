@@ -34,7 +34,8 @@ Route::get('/inicio_sesion', function () {
 
 Route::get('/user_dashboard', function () {
     return view('user_dashboard');
-});
+})->middleware('auth');
+
 
 Route::get('/main', function () {
     return view('main');
@@ -44,6 +45,14 @@ Route::get('/mi_perfil', function () {
     return view('mi_perfil');
 });
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+
+
+use App\Http\Controllers\LogoutController;
+
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+
