@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\AuthController;
 
 
 /*
@@ -32,9 +33,9 @@ Route::get('/inicio_sesion', function () {
     return view('inicio_sesion');
 });
 
-Route::get('/user_dashboard', function () {
-    return view('user_dashboard');
-})->middleware('auth');
+// Route::get('/user_dashboard', function () {
+//     return view('user_dashboard');
+// });
 
 
 Route::get('/main', function () {
@@ -45,14 +46,10 @@ Route::get('/mi_perfil', function () {
     return view('mi_perfil');
 });
 
-use App\Http\Controllers\LoginController;
-
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-
-
-use App\Http\Controllers\LogoutController;
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+// Route::get('/', [AuthController::class, 'index'])->name('home');
+Route::post('/login', [AuthController::class, 'login'])->name('login'); // Ruta para el inicio de sesión
+Route::get('/logados', [AuthController::class, 'logados'])->name('logados'); // Ruta para la página después de iniciar sesión
 

@@ -15,10 +15,10 @@ class InsertUsuarios extends Seeder
      */
     public function run()
     {
-        DB::table('usuarios')->insert([
-            'nombre' => 'Juan Carlos Lopez Rodriguez',
-            'nombreUsuario' => 'usuario1',
-            'contrasena' => Hash::make('1234'),
+        DB::table('user')->insert([
+            'name' => 'Juan Carlos Lopez Rodriguez',
+            'email' => 'juan@gmail.com',
+            'password' => Hash::make('1234'),
             'rol' => 'superUsuario',
             'created_at' => now(),
             'updated_at' => now(),

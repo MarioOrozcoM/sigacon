@@ -28,7 +28,7 @@
 <div class="container mx-auto mt-8">
     <h1 class="text-3xl font-bold text-center mb-4">Mi Perfil</h1>
 
-    <form action="{{ route('generar-contrasena') }}" method="POST" class="max-w-md mx-auto">
+    <form  class="max-w-md mx-auto">
         @csrf
 
         <div class="mb-4">
@@ -60,7 +60,6 @@
         </div>
     </form>
 </div>
-
 <!-- Cierre formulario del perfil -->
 
 <!-- Inicio Footer -->

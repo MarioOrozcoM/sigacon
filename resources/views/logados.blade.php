@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <title>Rol</title>
+    <title>Logado</title>
 </head>
 <body>
     
@@ -26,9 +26,10 @@
 
 <!-- Inicio usuarioNombre -->
 <div class="top-left-info ml-8 mt-4 text-lg">
-    <p>Juan Carlos López Rodríguez</p>
+    <p>Bienvenido: {{ $user->name }}</p>
 </div>
 <!-- Cierre usuarioNombre -->
+
 
 <!-- Inicio mis empresas -->
 <div class="container mx-auto">
@@ -38,6 +39,7 @@
         <div>
             <label for="empresa" class="block font-semibold mb-2">Empresa</label>
             <select name="empresa" id="empresa" class="w-full border border-gray-300 rounded-md py-2 px-4">
+                <option value="">Selecciona una empresa</option>
                 <option value="empresa1">Empresa 1</option>
                 <option value="empresa2">Empresa 2</option>
                 <!-- Agrega más opciones según sea necesario -->
@@ -47,6 +49,7 @@
         <div>
             <label for="rol" class="block font-semibold mb-2">Rol</label>
             <select name="rol" id="rol" class="w-full border border-gray-300 rounded-md py-2 px-4">
+                <option value="">Selecciona un rol</option>
                 <option value="rol1">Rol 1</option>
                 <option value="rol2">Rol 2</option>
                 <!-- Agrega más opciones según sea necesario -->
@@ -55,10 +58,43 @@
     </div>
 
     <div class="text-right mt-8">
-        <a href="{{ url('/main') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Siguiente</a>
+        <button id="siguienteBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" disabled>Siguiente</button>
     </div>
 </div>
 <!-- Cierre mis empresas -->
+<!-- Inicio JS para la validación de seleccionar la empresa y el rol -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener los elementos select
+        var empresaSelect = document.getElementById('empresa');
+        var rolSelect = document.getElementById('rol');
+        var siguienteBtn = document.getElementById('siguienteBtn');
+
+        // Función para habilitar o deshabilitar el botón Siguiente según la selección
+        function habilitarSiguiente() {
+            if (empresaSelect.value && rolSelect.value) {
+                siguienteBtn.removeAttribute('disabled');
+            } else {
+                siguienteBtn.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        // Función para redirigir a la página main.blade.php al hacer clic en Siguiente
+        function redirigir() {
+            if (empresaSelect.value && rolSelect.value) {
+                window.location.href = "{{ url('/main') }}";
+            }
+        }
+
+        // Agregar listeners de cambio a los select
+        empresaSelect.addEventListener('change', habilitarSiguiente);
+        rolSelect.addEventListener('change', habilitarSiguiente);
+
+        // Agregar listener de clic al botón Siguiente
+        siguienteBtn.addEventListener('click', redirigir);
+    });
+</script>
+<!-- ICierre JS para la validación de seleccionar la empresa y el rol -->
 
 
 <!-- Inicio Footer -->

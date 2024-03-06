@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 80);
-            $table->string('nombreUsuario', 50)->unique();
-            $table->string('contrasena', 255);
+            $table->string('name', 80);
+            $table->string('email', 50)->unique();
+            $table->string('password', 255);
             $table->enum('rol', ['superUsuario', 'contador', 'administrador', 'repreLegal', 'juntaDirectiva', 'revisorFiscal', 'propietario', 'proveedor', 'cliente', 'inmobiliaria', 'normalUser'])->default('normalUser');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -30,7 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('user');
     }
 };
-
