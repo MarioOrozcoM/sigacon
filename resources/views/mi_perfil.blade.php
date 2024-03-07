@@ -15,7 +15,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-60">
         
         <div class="flex space-x-4 text-lg">
-            <a href="{{ url('/user_dashboard') }}" class="hover:text-gray-400">Regresar</a>
+            <a href="{{ url('/logados') }}" class="hover:text-gray-400">Regresar</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
@@ -25,41 +25,60 @@
 </header> <!-- Cierre navegación superior -->
 
 <!-- Inicio formulario del perfil -->
-<div class="container mx-auto mt-8">
-    <h1 class="text-3xl font-bold text-center mb-4">Mi Perfil</h1>
+<form action="{{ route('update-password') }}" method="POST">
+                        @csrf
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
 
-    <form  class="max-w-md mx-auto">
-        @csrf
-
-        <div class="mb-4">
+                            <div class="mb-4">
             <label for="nombre" class="block font-semibold mb-2">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value="Nombre del usuario" readonly
+            <input type="text" id="nombre" name="nombre" value="{{ Auth::user()->name }}" readonly
                 class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
         </div>
 
         <div class="mb-4">
-            <label for="usuario" class="block font-semibold mb-2">Usuario</label>
-            <input type="text" id="usuario" name="usuario" value="Nombre de usuario" readonly
+            <label for="usuario" class="block font-semibold mb-2">Usuario - Email</label>
+            <input type="text" id="usuario" name="usuario" value="{{ Auth::user()->email }}" readonly
                 class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
         </div>
 
-        <div class="mb-4">
-            <label for="nueva-contrasena" class="block font-semibold mb-2">Nueva Contraseña</label>
-            <input type="password" id="nueva-contrasena" name="nueva-contrasena"
-                class="w-full border border-gray-300 rounded-md py-2 px-4" required>
-        </div>
+                            <div class="mb-3">
+                                <label for="oldPasswordInput" class="form-label">Old Password</label>
+                                <input name="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
+                                    placeholder="Old Password">
+                                @error('old_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="newPasswordInput" class="form-label">New Password</label>
+                                <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
+                                    placeholder="New Password">
+                                @error('new_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
+                                <input name="new_password_confirmation" type="password" class="form-control" id="confirmNewPasswordInput"
+                                    placeholder="Confirm New Password">
+                            </div>
 
-        <div class="mb-4">
-            <label for="confirmar-contrasena" class="block font-semibold mb-2">Confirmar Contraseña</label>
-            <input type="password" id="confirmar-contrasena" name="confirmar-contrasena"
-                class="w-full border border-gray-300 rounded-md py-2 px-4" required>
-        </div>
+                        </div>
 
-        <div class="text-right">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Continuar</button>
-        </div>
-    </form>
-</div>
+                        <div class="card-footer">
+                            <button class="btn btn-success">Submit</button>
+                        </div>
+
+                    </form>
 <!-- Cierre formulario del perfil -->
 
 <!-- Inicio Footer -->

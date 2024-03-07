@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AuthController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +35,9 @@ Route::get('/inicio_sesion', function () {
 // Route::get('/user_dashboard', function () {
 //     return view('user_dashboard');
 // });
+Route::get('/logados', function () {
+    return view('logados');
+});
 
 
 Route::get('/main', function () {
@@ -53,3 +55,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::post('/login', [AuthController::class, 'login'])->name('login'); // Ruta para el inicio de sesión
 Route::get('/logados', [AuthController::class, 'logados'])->name('logados'); // Ruta para la página después de iniciar sesión
 
+Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('change-password');
+Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');

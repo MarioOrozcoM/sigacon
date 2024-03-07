@@ -15,16 +15,23 @@ class InsertUsuarios extends Seeder
      */
     public function run()
     {
+        // DB::table('user')->insert([
+        //     'name' => 'Juan Carlos Lopez Rodriguez',
+        //     'email' => 'juan@gmail.com',
+        //     'password' => Hash::make('1234'),
+        //     'rol' => 'superUsuario',
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
+        // ]);
+
         DB::table('user')->insert([
-            'name' => 'Juan Carlos Lopez Rodriguez',
-            'email' => 'juan@gmail.com',
-            'password' => Hash::make('1234'),
-            'rol' => 'superUsuario',
+            'name' => 'Daniel Santiago Cardenas',
+            'email' => 'dani@gmail.com',
+            'password' => Hash::make('0000'),
+            'rol' => 'normalUser',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
-        // Puedes agregar más inserciones de usuarios aquí según sea necesario
     }
 }
 
