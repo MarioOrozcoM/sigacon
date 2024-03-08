@@ -27,58 +27,58 @@
 <!-- Inicio formulario del perfil -->
 <form action="{{ route('update-password') }}" method="POST">
                         @csrf
-                        <div class="card-body">
+                        <div class="card-body w-full max-w-md mx-auto mt-8">
                             @if (session('status'))
-                                <div class="alert alert-success" role="alert">
+                                <div class="text-lg alert alert-success" role="alert">
                                     {{ session('status') }}
                                 </div>
                             @elseif (session('error'))
-                                <div class="alert alert-danger" role="alert">
+                                <div class="text-lg alert alert-danger" role="alert">
                                     {{ session('error') }}
                                 </div>
                             @endif
+                            <h1 class="text-2xl text-center font-bold">Mi Perfil</h1>
+                            <div class="mb-4">
+                            <label for="nombre" class="block font-semibold mb-2">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" value="{{ Auth::user()->name }}" readonly
+                                class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
+                            </div>
 
                             <div class="mb-4">
-            <label for="nombre" class="block font-semibold mb-2">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value="{{ Auth::user()->name }}" readonly
-                class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
-        </div>
-
-        <div class="mb-4">
-            <label for="usuario" class="block font-semibold mb-2">Usuario - Email</label>
-            <input type="text" id="usuario" name="usuario" value="{{ Auth::user()->email }}" readonly
-                class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
-        </div>
+                            <label for="usuario" class="block font-semibold mb-2">Usuario - Email</label>
+                            <input type="text" id="usuario" name="usuario" value="{{ Auth::user()->email }}" readonly
+                                class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
+                            </div>
 
                             <div class="mb-3">
-                                <label for="oldPasswordInput" class="form-label">Old Password</label>
-                                <input name="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
+                                <label for="oldPasswordInput" class="form-label block font-semibold mb-2">Contraseña actual</label>
+                                <input name="old_password" type="password" class="w-full border border-gray-300 rounded-md py-2 px-4 form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
                                     placeholder="Old Password">
                                 @error('old_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="newPasswordInput" class="form-label">New Password</label>
-                                <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
+                                <label for="newPasswordInput" class="form-label block font-semibold mb-2">Nueva Contraseña</label>
+                                <input name="new_password" type="password" class="w-full border border-gray-300 rounded-md py-2 px-4 form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
                                     placeholder="New Password">
                                 @error('new_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
-                                <input name="new_password_confirmation" type="password" class="form-control" id="confirmNewPasswordInput"
+                                <label for="confirmNewPasswordInput" class="form-label block font-semibold mb-2">Confirmar nueva contraseña</label>
+                                <input name="new_password_confirmation" type="password" class="w-full border border-gray-300 rounded-md py-2 px-4 form-control" id="confirmNewPasswordInput"
                                     placeholder="Confirm New Password">
                             </div>
 
                         </div>
 
-                        <div class="card-footer">
-                            <button class="btn btn-success">Submit</button>
+                        <div class=" text-2xl font-semibold card-footer w-full max-w-md mx-auto mt-8 text-right">
+                            <button class="bg-orange-600 rounded btn btn-success">Aceptar</button>
                         </div>
 
-                    </form>
+</form>
 <!-- Cierre formulario del perfil -->
 
 <!-- Inicio Footer -->
