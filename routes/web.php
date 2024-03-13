@@ -58,3 +58,6 @@ Route::get('/logados', [AuthController::class, 'logados'])->name('logados'); // 
 // Rutas para el cambio de contraseña
 Route::get('/change-password', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('change-password'); 
 Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
+
+// Ruta para mostrar la vista principal (main), es para que la variable $user funcione
+Route::get('/main', [AuthController::class, 'main'])->name('main')->middleware('auth');

@@ -41,6 +41,13 @@ class AuthController extends Controller
     return redirect("/")->withErrors(['email' => 'Los datos introducidos no son correctos']);
 }
     
+    private function getUserData() {
+        if (Auth::check()) {
+            return Auth::user();
+        }
+        return null;
+    }
+
     // Función que muestra la vista de logados si el usuario está logado y si no le devuelve al formulario de login con un mensaje de error
     public function logados()
     {
@@ -52,5 +59,16 @@ class AuthController extends Controller
     
         return redirect("/")->withSuccess('No tienes acceso, por favor inicia sesión');
     }
-}
+
+    // Función para mostrar la vista principal
+    public function main()  //es para que la variable $user funcione en main.blade
+    {
+        // Obtenemos la información del usuario
+        $user = $this->getUserData();
+    
+        // Retornamos la vista principal y pasamos la información del usuario a la vista
+        return view('main', ['user' => $user]);
+    }
+    }
+
 
