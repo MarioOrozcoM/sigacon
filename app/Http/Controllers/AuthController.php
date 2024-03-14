@@ -69,6 +69,12 @@ class AuthController extends Controller
         // Retornamos la vista principal y pasamos la información del usuario a la vista
         return view('main', ['user' => $user]);
     }
+    // public function adminUsers()
+    // {
+    //     $user = $this->getUserData();
+
+    //     return view('superUsuario.adminUsers', ['user' => $user]);
+    // }
     }
 
 

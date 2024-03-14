@@ -19,7 +19,7 @@
         
         <div class="flex space-x-4 text-white text-lg">
             <a href="{{ url('/main') }}" class="hover:text-gray-400">Inicio</a>
-            <a href="#" class="hover:text-gray-400">Usuarios</a>
+            <a href="{{ url('/admin/users') }}" class="hover:text-gray-400">Usuarios</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
@@ -28,12 +28,12 @@
     </div>
     </header>
     <!-- Inicio empresaRol -->
-    <div class="top-left-info ml-8 mt-4 text-lg">
+    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
         <p>{{ $user->rol }} - Empresa: - -</p>
     </div>
 <!-- Cierre empresaRol -->
 <div class="text-center">
-    <h1 class="text-black text-2xl text-semibold">Acciones</h1>
+    <h1 class="text-black text-2xl text-bold">Acciones</h1>
 </div>
 <!-- Inicio acciones disponibles -->
 

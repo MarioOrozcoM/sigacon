@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,11 @@ Route::get('/mi_perfil', function () {
     return view('mi_perfil');
 });
 
+// Route::get('/admin/users', function () {
+//     return view('superUsuario.adminUsers');
+// });
+
+
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
@@ -61,3 +67,14 @@ Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'up
 
 // Ruta para mostrar la vista principal (main), es para que la variable $user funcione
 Route::get('/main', [AuthController::class, 'main'])->name('main')->middleware('auth');
+
+//Ruta para que la vista de adminUsers.blade le funcione la variable $user
+// Route::get('/admin/users', [AuthController::class, 'adminUsers'])->name('adminUsers')->middleware('auth');
+
+// Rutas para mostrar la lista de usuarios y agregar un nuevo usuario
+Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/admin/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/admin/users', [UserController::class, 'store'])->name('users.store');
+
+// Ruta para eliminar un usuario
+Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
