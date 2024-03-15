@@ -42,6 +42,7 @@
             <tr>
                 <th class="border border-gray-400 px-4 py-2">Nombre</th>
                 <th class="border border-gray-400 px-4 py-2">Email</th>
+                <th class="border border-gray-400 px-4 py-2">Rol</th>
                 <th class="border border-gray-400 px-4 py-2">Acciones</th>
             </tr>
         </thead>
@@ -51,8 +52,9 @@
             <tr>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->name }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->email }}</td>
+                <td class="border border-gray-400 px-4 py-2">{{ $user->rol }}</td>
                 <td class="border border-gray-400 px-4 py-2">
-                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                    <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="text-red-500 hover:underline">Eliminar</button>
@@ -67,6 +69,7 @@
     <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Agregar Usuario</a>
 </div>
 <!-- Fin administrar usuarios -->
+
 
 
 <!-- Inicio footer -->

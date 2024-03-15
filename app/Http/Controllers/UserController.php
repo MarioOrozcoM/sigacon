@@ -42,9 +42,9 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:user,email',
             'password' => 'required|string|min:6',
-            'rol' => 'required|string|in:superUsuario,usuario', // Define los roles permitidos aquí
+            'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
         ]);
 
         User::create([
