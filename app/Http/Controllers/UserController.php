@@ -66,6 +66,44 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente.');
     }
 
-     
+    public function edit(User $user)  //para editar la info del usuario
+{
+    $roles = [
+        'superUsuario',
+        'contador',
+        'administrador',
+        'repreLegal',
+        'juntaDirectiva',
+        'revisorFiscal',
+        'propietario',
+        'proveedor',
+        'cliente',
+        'inmobiliaria',
+        'normalUser'
+    ];
+
+    return view('superUsuario.editUser', compact('user', 'roles'));
 }
+
+public function update(Request $request, User $user) //para actualizar la info editada del usuario
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:user,email,'.$user->id,
+        'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
+    ]);
+
+    $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'rol' => $request->rol,
+    ]);
+
+    return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
+}
+
+}
+
+     
+
 

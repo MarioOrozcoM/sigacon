@@ -43,7 +43,7 @@
                 <th class="border border-gray-400 px-4 py-2">Nombre</th>
                 <th class="border border-gray-400 px-4 py-2">Email</th>
                 <th class="border border-gray-400 px-4 py-2">Rol</th>
-                <th class="border border-gray-400 px-4 py-2">Acciones</th>
+                <th class="border border-gray-400 px-4 py-2 w-40">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -53,11 +53,15 @@
                 <td class="border border-gray-400 px-4 py-2">{{ $user->name }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->email }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->rol }}</td>
-                <td class="border border-gray-400 px-4 py-2">
+                <td class="border border-gray-400 px-4 py-2 flex items-center">
+                    <form class="mr-2" action="{{ route('users.edit', $user->id) }}">
+                        @csrf
+                        <button type="submit" class="text-blue-500 hover:underline text-bold">Editar</button>
+                    </form>
                     <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="text-red-500 hover:underline">Eliminar</button>
+                        <button type="submit" class="text-red-500 hover:underline text-bold">Eliminar</button>
                     </form>
                 </td>
             </tr>

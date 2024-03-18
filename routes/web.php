@@ -78,3 +78,7 @@ Route::post('/admin/users', [UserController::class, 'store'])->name('users.store
 
 // Ruta para eliminar un usuario
 Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+// rutas para editar un usuario
+Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
