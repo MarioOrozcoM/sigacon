@@ -58,10 +58,15 @@
                         @csrf
                         <button type="submit" class="text-blue-500 hover:underline text-bold">Editar</button>
                     </form>
-                    <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
+                    <!-- En lugar de eliminar, inhabilitar/habilitar -->
+                    <form id="toggle-form-{{ $user->id }}" action="{{ route('users.toggle', $user->id) }}" method="POST">
                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-red-500 hover:underline text-bold">Eliminar</button>
+                        @method('PUT')
+                        @if ($user->active)
+                            <button type="submit" class="text-gray-500 hover:underline text-bold">Inhabilitar</button>
+                        @else
+                            <button type="submit" class="text-green-500 hover:underline text-bold">Habilitar</button>
+                        @endif
                     </form>
                 </td>
             </tr>

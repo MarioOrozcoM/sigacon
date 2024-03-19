@@ -102,6 +102,15 @@ public function update(Request $request, User $user) //para actualizar la info e
     return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
 }
 
+public function toggle(User $user) //Para habilitar o inhabilitar un usuario
+{
+    $user->active = !$user->active;
+    $user->save();
+
+    return redirect()->back()->with('success', 'Estado del usuario actualizado correctamente.');
+}
+
+
 }
 
      

@@ -77,7 +77,9 @@ Route::get('/admin/users/create', [UserController::class, 'create'])->name('user
 Route::post('/admin/users', [UserController::class, 'store'])->name('users.store');
 
 // Ruta para eliminar un usuario
-Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+//Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::put('/users/{user}/toggle', [UserController::class, 'toggle'])->name('users.toggle'); //Inhabilitar o habilitar un usuario
+
 
 // rutas para editar un usuario
 Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
