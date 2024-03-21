@@ -36,6 +36,9 @@
 <div class="container mx-auto px-4 mt-8">
     <h2 class="text-xl font-semibold">Lista de Usuarios</h2>
     
+    <!-- Barra de búsqueda -->
+    <input type="text" id="searchInput" placeholder="Buscar por nombre" class="border border-gray-400 px-4 py-2 mb-4">
+    
     <!-- Lista de usuarios -->
     <table class="w-full border-collapse border border-gray-400">
         <thead>
@@ -49,8 +52,8 @@
         <tbody>
             <!-- Iterar sobre la lista de usuarios -->
             @foreach($users as $user)
-            <tr>
-                <td class="border border-gray-400 px-4 py-2">{{ $user->name }}</td>
+            <tr class="user-row">
+                <td class="border border-gray-400 px-4 py-2 user-name">{{ $user->name }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->email }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->rol }}</td>
                 <td class="border border-gray-400 px-4 py-2 flex items-center">
@@ -90,6 +93,31 @@
     </div>
 </footer>
 <!-- Fin footer -->
-    
+
+<!-- JavaScript para barra de búsqueda -->
+<script src="{{ mix('js/app.js') }}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.trim().toLowerCase();
+
+            const users = document.querySelectorAll('.user-row');
+
+            users.forEach(function(user) {
+                const name = user.querySelector('.user-name').textContent.trim().toLowerCase();
+                
+                if (name.includes(searchTerm)) {
+                    user.style.display = 'table-row';
+                } else {
+                    user.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
