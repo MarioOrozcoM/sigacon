@@ -8,23 +8,24 @@
 </head>
 <body>
 
-<!-- Inicio información dependiendo ROL -->
+<!-- Inicio información dependiendo ROL -->  <!-- Usaré include para no saturar el archivo de código -->
 
 <!-- Inicio superUsuario -->
 @if(Auth::user()->rol === 'superUsuario')
         <!-- <p>¡Eres un superUsuario. Aquí está la información compartida.</p> -->
-        @include('superUsuario.mainSuper')  <!-- Agrego el include para no saturar el archivo actual -->
+        @include('superUsuario.headerSuper') <!-- HEADER -->  
 
     <!-- Inicio empresaRol -->
         <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
             <p>{{ $user->rol }} - Empresa: - -</p>
         </div>
     <!-- Cierre empresaRol -->
-
 <!-- Inicio acciones disponibles -->
     <div class="text-center">
         <h1 class="text-black text-2xl text-bold">Acciones</h1>
     </div>
+
+    @include('superUsuario.viewActions')
 <!-- Cierre acciones disponibles -->
 
 <!-- Cierre superUsuario -->
