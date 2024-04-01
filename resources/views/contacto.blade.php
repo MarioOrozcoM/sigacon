@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>Contacto</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
 <!-- Inicio navegación superior -->
 <header class="bg-black">
@@ -26,11 +26,11 @@
 </header> <!-- Cierre navegación superior -->
 
 <div class="text-black text-center">
-<h1 class=" text-2xl font-bold">CONTACTO</h1>
-<p class="text-lg">Diligencie el siguiente formulario para que un asesor se ponga en contacto con usted.</p>
+  <h1 class=" text-2xl font-bold">CONTACTO</h1>
+    <p class="text-lg">Diligencie el siguiente formulario para que un asesor se ponga en contacto con usted.</p>
 </div>
 <!-- Inicio formulario Contacto -->
-<div class="flex justify-center items-center h-full">
+<div class="flex justify-center items-center h-full my-8 mt-8">
   <div class="bg-white p-8 rounded-lg shadow-lg overflow-y-auto max-h-full">
     <h2 class="text-2xl font-semibold mb-4">Formulario de Contacto</h2>
     <form id="contactForm" action="https://formsubmit.co/f11c16f2edc6731c47de02c711fd45a2" method="POST">
@@ -79,7 +79,7 @@
 
 
 <!-- Inicio Footer -->
-<footer class="bg-black text-white py-4 fixed bottom-0 w-full">
+<footer class="bg-black text-white py-4 mt-auto">
     <div class="container mx-auto px-4">
         <div>
             <div>

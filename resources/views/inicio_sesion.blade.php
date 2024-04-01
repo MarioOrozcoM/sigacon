@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>Iniciar Sesion</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
 <!-- Inicio navegación superior -->
 <header class="bg-black">
@@ -61,7 +61,7 @@
 
 
 <!-- Inicio Footer -->
-<footer class="bg-black text-white py-4 fixed bottom-0 w-full">
+<footer class="bg-black text-white py-4 mt-auto">
     <div class="container mx-auto px-4">
         <div>
             <div>

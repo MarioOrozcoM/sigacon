@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>Nosotros</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
     <!-- Inicio navegación superior -->
 <header class="bg-black">
@@ -55,24 +55,24 @@
 <!-- Inicio Más sobre nosotros -->
 <h1 class="text-black font-bold text-center mt-4 text-2xl">Más Sobre Nosotros</h1>
 
-<div class="grid grid-cols-3 gap-4 mx-6 mt-2">
+<div class="grid grid-cols-3 gap-4 mx-6 mt-2 my-8">
     <div>
         <h3 class="text-black text-xl font-bold text-center">Empresas Afiliadas</h3>
-        <p></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec nibh id est consectetur posuere eget vel nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed sollicitudin tellus. Pellentesque non pulvinar diam, et pulvinar libero. Phasellus venenatis tristique libero ut suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eleifend sem, eu egestas diam. Nam quis lorem elit. Donec pretium auctor nisl, id iaculis turpis gravida in. Nunc id laoreet odio. Aenean commodo lacus nec lectus interdum, nec mattis purus placerat. Phasellus at velit quis lacus dictum molestie id sit amet diam. Etiam posuere tortor eget justo ultrices, vitae imperdiet sapien mattis. Proin non dui ut ligula porttitor tempus nec ut nunc.</p>
     </div>
     <div>
         <h3 class="text-black text-xl font-bold text-center">Servicios</h3>
-        <p></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec nibh id est consectetur posuere eget vel nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed sollicitudin tellus. Pellentesque non pulvinar diam, et pulvinar libero. Phasellus venenatis tristique libero ut suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eleifend sem, eu egestas diam. Nam quis lorem elit. Donec pretium auctor nisl, id iaculis turpis gravida in. Nunc id laoreet odio. Aenean commodo lacus nec lectus interdum, nec mattis purus placerat. Phasellus at velit quis lacus dictum molestie id sit amet diam. Etiam posuere tortor eget justo ultrices, vitae imperdiet sapien mattis. Proin non dui ut ligula porttitor tempus nec ut nunc.</p>
     </div>
     <div>
         <h3 class="text-black text-xl font-bold text-center">Planes</h3>
-        <p></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec nibh id est consectetur posuere eget vel nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed sollicitudin tellus. Pellentesque non pulvinar diam, et pulvinar libero. Phasellus venenatis tristique libero ut suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et eleifend sem, eu egestas diam. Nam quis lorem elit. Donec pretium auctor nisl, id iaculis turpis gravida in. Nunc id laoreet odio. Aenean commodo lacus nec lectus interdum, nec mattis purus placerat. Phasellus at velit quis lacus dictum molestie id sit amet diam. Etiam posuere tortor eget justo ultrices, vitae imperdiet sapien mattis. Proin non dui ut ligula porttitor tempus nec ut nunc.</p>
     </div>
 
 </div>
 
 <!-- Inicio Footer -->
-<footer class="bg-black text-white py-4 fixed bottom-0 w-full">
+<footer class="bg-black text-white py-4 mt-auto">
     <div class="container mx-auto px-4">
         <div>
             <div>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>Main</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
 <!-- Inicio información dependiendo ROL -->  <!-- Usaré include para no saturar el archivo de código -->
 
@@ -46,11 +46,11 @@
 
 
 <!-- Inicio Footer -->
-<footer class="bg-black text-white py-4 fixed bottom-0 w-full">
+<footer class="bg-black text-white py-4 mt-auto">
     <div class="container mx-auto px-4">
-            <div class="text-white text-2xl text-center">
-                <p>Todos los Derechos Reservados {{ date('Y') }} &copy;</p>
-            </div>
+        <div class="text-white text-2xl text-center">
+            <p>Todos los Derechos Reservados {{ date('Y') }} &copy;</p>
+        </div>
     </div>
 </footer>
 <!-- Cierre Footer -->
