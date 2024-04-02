@@ -47,7 +47,7 @@
     <div class="bg-orange-500 text-white p-4">
         <h3 class="text-white text-xl font-bold mb-4 text-center">VISIÓN</h3>
         <p class="text-lg">Asegurar un alto índice de confianza por la calidad de la información,
-        logrando su lealtad y fidelidad, que nos permita ampliar nuestroshorizontes a nivel nacional, 
+        logrando su lealtad y fidelidad, que nos permita ampliar nuestros horizontes a nivel nacional, 
         trabajando en equipo.</p>
     </div>   
 </div> <!-- Cierre Misión y Visión -->

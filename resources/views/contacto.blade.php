@@ -59,6 +59,12 @@
 </div>
 <!-- Cierre formulario Contacto -->
 
+<!-- Inicio Botón para abrir el chat de WhatsApp -->
+<div class="flex justify-end mb-8 mr-8">
+    <a href="https://wa.me/573002182505?text=Hola,%20estoy%20interesad@%20en%20tus%20servicios" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Chat de WhatsApp</a>
+</div>
+<!-- Fin Botón para abrir el chat de WhatsApp -->
+
 <!-- Inicio Validar formulario contacto -->
 <script>
   function validateForm() {

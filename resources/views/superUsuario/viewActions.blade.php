@@ -11,81 +11,81 @@
 <!-- Inicio código para mostrar las acciones disponibles -->
 <div class="flex justify-center">
     <table class="m-6 w-full border-collapse border">
-        <thead class="bg-gray-50">
-            <tr class="text-center underline text-gray-600 text-1xl uppercase">
+        <thead class="bg-gray-100">
+            <tr class="text-center text-black text-1xl uppercase">
                 <th class="px-6 py-3 border-collapse border w-1/5">
-                    <a href="#" class="font-semibold tracking-wider hover:text-black">Administración</a>
+                    <a class="font-semibold tracking-wider">Administración</a>
                 </th>
                 <th class="px-6 py-3 border-collapse border w-1/5">
-                    <a href="#" class="font-semibold tracking-wider hover:text-black">Documentos</a>
+                    <a class="font-semibold tracking-wider">Documentos</a>
                 </th>
                 <th class="px-6 py-3 border-collapse border w-1/5">
-                    <a href="#" class="font-semibold tracking-wider hover:text-black">Reportes</a>
+                    <a class="font-semibold tracking-wider">Reportes</a>
                 </th>
                 <th class="px-6 py-3 border-collapse border w-1/5">
-                    <a href="#" class="font-semibold tracking-wider hover:text-black">Gerencia</a>
+                    <a class="font-semibold tracking-wider">Gerencia</a>
                 </th>
                 <th class="px-6 py-3 border-collapse border w-1/5">
-                    <a href="#" class="font-semibold tracking-wider hover:text-black">Ayuda</a>
+                    <a class="font-semibold tracking-wider">Ayuda</a>
                 </th>
             </tr>
         </thead>
-        <tbody class="bg-white divide-y divide-gray-200">
+        <tbody class="bg-white divide-y divide-gray-200 text-gray-600 font-semibold">
             <tr class="divide-x">
-                <td class="px-6 py-4">Crear/Editar Catálogos</td>
-                <td class="px-6 py-4">Tesorería</td>
-                <td class="px-6 py-4">Tesorería</td>
-                <td class="px-6 py-4">Crm</td>
-                <td class="px-6 py-4">""</td>
+            <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Crear/Editar Catálogos</button></td>
+            <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Tesorería</button></td>
+            <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Tesorería</button></td>
+            <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Crm</button></td>
+            <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4">Activar modulos, usuarios y permisos</td>
-                <td class="px-6 py-4">Cuenta por Cobrar</td>
-                <td class="px-6 py-4">Cuenta por Cobrar</td>
-                <td class="px-6 py-4">Estadísticas</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Activar modulos, usuarios y permisos</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Cuenta por Cobrar</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Cuenta por Cobrar</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Estadísticas</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4">Utilidades</td>
-                <td class="px-6 py-4">Cuenta por Pagar</td>
-                <td class="px-6 py-4">Cuenta por Pagar</td>
-                <td class="px-6 py-4">Publicaciones</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Utilidades</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Cuenta por Pagar</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Cuenta por Pagar</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Publicaciones</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4">Parámetros</td>
-                <td class="px-6 py-4">Nomina</td>
-                <td class="px-6 py-4">Nomina</td>
-                <td class="px-6 py-4">Eventos</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Parámetros</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Nomina</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Nomina</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Eventos</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4">Inventarios</td>
-                <td class="px-6 py-4">Inventarios</td>
-                <td class="px-6 py-4">Alquiler Servicios</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Inventarios</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Inventarios</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Alquiler Servicios</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4">Contabilidad</td>
-                <td class="px-6 py-4">Contabilidad</td>
-                <td class="px-6 py-4">Concejeros</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Contabilidad</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Contabilidad</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Concejeros</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4">Descuentos Especiales</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Descuentos Especiales</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
             <tr class="divide-x">
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4">Con Quién Vivo</td>
-                <td class="px-6 py-4">""</td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline"></button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Con Quién Vivo</button></td>
+                <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">""</button></td>
             </tr>
         </tbody>
     </table>
