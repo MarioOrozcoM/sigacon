@@ -24,14 +24,68 @@
     <div class="text-center">
         <h1 class="text-black text-2xl text-bold">Acciones</h1>
     </div>
-
     @include('superUsuario.viewActions')
 <!-- Cierre acciones disponibles -->
-
 <!-- Cierre superUsuario -->
 
+
+<!-- Inicio contador -->
+    @elseif(Auth::user()->rol === 'contador')
+    <!-- Inicio Header -->
+    @include('contador.headerContador')
+    <!-- Fin Header -->
+    <!-- Inicio empresa rol -->
+    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
+            <p>{{ $user->rol }} - Empresa: - -</p>
+    </div>
+    <!-- Cierre empresa rol -->
+    <!-- Inicio acciones disponibles -->
+    <div class="text-center">
+        <h1 class="text-black text-2xl text-bold">Acciones</h1>
+    </div>
+    @include('contador.viewActions')
+    <!-- Fin acciones disponibles -->
+<!-- Fin contador -->
+
+
+<!-- Inicio administrador -->
+@elseif(Auth::user()->rol === 'administrador')
+<!-- Inicio header -->
+    @include('contador.headerContador')  <!-- Estoy reciclando el header del contador ya que es el mismo -->
+<!-- Fin header -->
+<!-- Inicio empresa rol -->
+    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
+            <p>{{ $user->rol }} - Empresa: - -</p>
+    </div>
+<!-- Fin empresa rol -->
+<!-- Inicio acciones disponibles -->
+    <div class="text-center">
+        <h1 class="text-black text-2xl text-bold">Acciones</h1>
+    </div>
+    @include('administrador.viewActions')
+<!-- Fin acciones disponibles -->
+<!-- Fin administrador -->
+
+
+<!-- Inicio resto de usuarios -->
     @elseif(Auth::user()->rol === 'repreLegal' || Auth::user()->rol === 'juntaDirectiva' || Auth::user()->rol === 'revisorFiscal' || Auth::user()->rol === 'propietario' || Auth::user()->rol === 'proveedor' || Auth::user()->rol === 'cliente' || Auth::user()->rol === 'inmobiliaria')
-        <p>¡Eres un repreLegal, juntaDirectiva, revisorFiscal, propietario, proveedor, cliente o inmobiliaria! Aquí está la información específica.</p>
+    <!-- Inicio header -->
+    @include('contador.headerContador') <!-- Estoy reciclando el header del contador ya que es el mismo -->
+    <!-- Fin header -->
+    <!-- Inicio empresa rol -->
+    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
+            <p>{{ $user->rol }} - Empresa: - -</p>
+    </div>
+    <!-- Fin empresa rol -->
+    <!-- Inicio acciones disponibles -->
+    <div class="text-center">
+        <h1 class="text-black text-2xl text-bold">Acciones</h1>
+    </div>
+    @include('otros_roles.viewActions')
+    <!-- Fin acciones disponibles -->
+<!-- Fin resto de usuarios -->
+
+
     @elseif(Auth::user()->rol === 'normalUser')
         <p>¡Eres un usuario regular! Aquí está la información para usuarios regulares.</p>
     @else

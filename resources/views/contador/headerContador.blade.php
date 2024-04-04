@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +13,6 @@
         
         <div class="flex space-x-4 text-white text-lg">
             <a href="{{ url('/main') }}" class="hover:text-gray-400">Inicio</a>
-            <a href="{{ url('/admin/users') }}" class="hover:text-gray-400">Usuarios</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
@@ -22,7 +20,6 @@
         </div>
     </div>
     </header>
-
 
 </body>
 </html>
