@@ -77,6 +77,14 @@ public function login(Request $request)
 
     //     return view('superUsuario.adminUsers', ['user' => $user]);
     // }
+
+      public function rol()
+      {
+        $user = $this->getUserData();
+
+        return view('includes.show_rol', ['user' => $user]);
+      }
+
     }
 
 

@@ -49,9 +49,14 @@ Route::get('/mi_perfil', function () {
     return view('mi_perfil');
 });
 
+Route::get('/crear_editar_catalogos', function () {
+    return view('seccionAdministracion.crear_editar_catalogos');
+});
+
 // Route::get('/admin/users', function () {
 //     return view('superUsuario.adminUsers');
 // });
+
 
 
 
@@ -67,6 +72,7 @@ Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'up
 
 // Ruta para mostrar la vista principal (main), es para que la variable $user funcione
 Route::get('/main', [AuthController::class, 'main'])->name('main')->middleware('auth');
+
 
 //Ruta para que la vista de adminUsers.blade le funcione la variable $user
 // Route::get('/admin/users', [AuthController::class, 'adminUsers'])->name('adminUsers')->middleware('auth');

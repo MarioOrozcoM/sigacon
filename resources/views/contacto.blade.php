@@ -36,19 +36,19 @@
     <form id="contactForm" action="https://formsubmit.co/f11c16f2edc6731c47de02c711fd45a2" method="POST">
       <div class="mb-4">
         <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-        <input type="text" id="name" name="name" class="form-input mt-1 block w-full" required>
+        <input type="text" id="name" name="name" class="form-input mt-1 block w-full border border-gray-300 rounded-md" required>
       </div>
       <div class="mb-4">
         <label for="phone" class="block text-sm font-medium text-gray-700">Número de Contacto</label>
-        <input type="text" id="phone" name="phone" class="form-input mt-1 block w-full" required>
+        <input type="text" id="phone" name="phone" class="form-input mt-1 block w-full border border-gray-300 rounded-md" required>
       </div>
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" name="email" class="form-input mt-1 block w-full" required>
+        <input type="email" id="email" name="email" class="form-input mt-1 block w-full border border-gray-300 rounded-md" required>
       </div>
       <div class="mb-4">
         <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
-        <textarea id="message" name="message" class="form-textarea mt-1 block w-full" rows="4" required></textarea>
+        <textarea id="message" name="message" class="form-textarea mt-1 block w-full border border-gray-300 rounded-md" rows="4" required></textarea>
       </div>
       <!-- <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button> -->
       <input type="submit" value="Enviar" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">

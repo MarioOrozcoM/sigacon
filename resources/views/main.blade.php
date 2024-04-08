@@ -16,9 +16,7 @@
         @include('superUsuario.headerSuper') <!-- HEADER -->  
 
     <!-- Inicio empresaRol -->
-        <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
-            <p>{{ $user->rol }} - Empresa: - -</p>
-        </div>
+    @include('includes.show_rol')
     <!-- Cierre empresaRol -->
 <!-- Inicio acciones disponibles -->
     <div class="text-center">
@@ -35,9 +33,7 @@
     @include('contador.headerContador')
     <!-- Fin Header -->
     <!-- Inicio empresa rol -->
-    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
-            <p>{{ $user->rol }} - Empresa: - -</p>
-    </div>
+    @include('includes.show_rol')
     <!-- Cierre empresa rol -->
     <!-- Inicio acciones disponibles -->
     <div class="text-center">
@@ -54,9 +50,7 @@
     @include('contador.headerContador')  <!-- Estoy reciclando el header del contador ya que es el mismo -->
 <!-- Fin header -->
 <!-- Inicio empresa rol -->
-    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
-            <p>{{ $user->rol }} - Empresa: - -</p>
-    </div>
+@include('includes.show_rol')
 <!-- Fin empresa rol -->
 <!-- Inicio acciones disponibles -->
     <div class="text-center">
@@ -73,9 +67,7 @@
     @include('contador.headerContador') <!-- Estoy reciclando el header del contador ya que es el mismo -->
     <!-- Fin header -->
     <!-- Inicio empresa rol -->
-    <div class="top-left-info ml-8 mt-4 text-lg text-semibold">
-            <p>{{ $user->rol }} - Empresa: - -</p>
-    </div>
+    @include('includes.show_rol')
     <!-- Fin empresa rol -->
     <!-- Inicio acciones disponibles -->
     <div class="text-center">
@@ -92,21 +84,12 @@
         <p>¡Tu rol no está reconocido! Por favor, ponte en contacto con el administrador.</p>
     @endif
 
-
-
-
 <!-- Cierre información dependiendo ROL -->
 
 
 
 <!-- Inicio Footer -->
-<footer class="bg-black text-white py-4 mt-auto">
-    <div class="container mx-auto px-4">
-        <div class="text-white text-2xl text-center">
-            <p>Todos los Derechos Reservados {{ date('Y') }} &copy;</p>
-        </div>
-    </div>
-</footer>
+@include('includes.footer')
 <!-- Cierre Footer -->
 
 </body>

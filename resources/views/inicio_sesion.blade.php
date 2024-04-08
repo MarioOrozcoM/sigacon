@@ -45,11 +45,11 @@
             @csrf
             <div class="mb-4">
                 <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
-                <input type="text" id="email" name="email" class="form-input mt-1 block w-full">
+                <input type="text" id="email" name="email" class="form-input mt-1 block w-full border border-gray-300 rounded-md">
             </div>
             <div class="mb-4">
                 <label for="password" class="block text-sm font-semibold text-gray-700">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-input mt-1 block w-full">
+                <input type="password" id="password" name="password" class="form-input mt-1 block w-full border border-gray-300 rounded-md">
             </div>
             <div class="mb-4">
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Iniciar Sesión</button>

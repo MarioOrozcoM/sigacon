@@ -32,7 +32,7 @@
         </thead>
         <tbody class="bg-white divide-y divide-gray-200 text-gray-600 font-semibold">
             <tr class="divide-x">
-            <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Crear/Editar Catálogos</button></td>
+            <td class="px-6 py-4"><button onclick="window.location.href = '/crear_editar_catalogos';" class="hover:underline">Crear/Editar Catálogos</button></td>
             <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Tesorería</button></td>
             <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Tesorería</button></td>
             <td class="px-6 py-4"><button onclick="window.location.href = '#';" class="hover:underline">Crm</button></td>

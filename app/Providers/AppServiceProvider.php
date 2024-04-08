@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\ViewComposers\UserComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        // Registrar el View Composer para la vista includes.show_rol
+        View::composer('includes.show_rol', UserComposer::class);
     }
 }
