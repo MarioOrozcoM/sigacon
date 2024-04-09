@@ -9,19 +9,7 @@
 <body class="flex flex-col min-h-screen">
  
 <!-- Inicio navegación superior -->
-<header class="bg-black">
-    <div class="container mx-auto flex items-center justify-between px-4 py-2 text-white">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-60">
-        
-        <div class="flex space-x-4 text-white text-lg">
-            <a href="{{ url('/main') }}" class="hover:text-gray-400">Inicio</a>
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
-            </form>
-        </div>
-    </div>
-</header>
+@include('includes.header_redirect_main')
 <!-- Fin navegación superior -->
 
 <!-- Inicio empresaRol -->
@@ -36,40 +24,64 @@
 <div class="flex justify-center">
     <table class="m-6 w-1/4 border-collapse border text-lg text-black font-semibold">
         <tr>
-            <td class="border-b hover:underline">1- Crear editar Terceros</td>
+            <td class="border-b hover:underline">
+                <a href="/terceros">1- Crear editar Terceros</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">2- Crear editar Empresas</td>
+            <td class="border-b hover:underline">
+                <a href="#">2- Crear editar Empresas</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">3- Crear editar Cuentas</td>
+            <td class="border-b hover:underline">
+                <a href="#">3- Crear editar Cuentas</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">4- Crear editar Usuarios/Roles</td>
+            <td class="border-b hover:underline">
+                <a href="#">4- Crear editar Usuarios/Roles</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">5- Crear editar Reportes</td>
+            <td class="border-b hover:underline">
+                <a href="#">5- Crear editar Reportes</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">6- Crear editar Documentos</td>
+            <td class="border-b hover:underline">
+                <a href="#">6- Crear editar Documentos</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">7- Crear editar Subcategorías</td>
+            <td class="border-b hover:underline">
+                <a href="#">7- Crear editar Subcategorías</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">8- Crear editar Organización Territorial y Códigos</td>
+            <td class="border-b hover:underline">
+                <a href="#">8- Crear editar Organización Territorial y Códigos</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">9- Crear editar Nomina</td>
+            <td class="border-b hover:underline">
+                <a href="#">9- Crear editar Nomina</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">10- Crear editar Inventarios</td>
+            <td class="border-b hover:underline">
+                <a href="#">10- Crear editar Inventarios</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">11- Crear editar Utilidades</td>
+            <td class="border-b hover:underline">
+                <a href="#">11- Crear editar Utilidades</a>
+            </td>
         </tr>
         <tr>
-            <td class="border-b hover:underline">12- Crear editar Contabilidad</td>
+            <td class="border-b hover:underline">
+                <a href="#">12- Crear editar Contabilidad</a>
+            </td>
         </tr>
     </table>
 </div>

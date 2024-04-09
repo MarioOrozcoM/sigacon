@@ -7,3 +7,7 @@
     </div>
 </footer>
 <!-- Cierre Footer -->
+
+<!-- 
+    Este include es para agilizar la creación del footer para todos los usuarios sin importar el rol.
+ -->
