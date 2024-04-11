@@ -25,62 +25,57 @@
     <table class="m-6 w-1/4 border-collapse border text-lg text-black font-semibold">
         <tr>
             <td class="border-b hover:underline">
-                <a href="/terceros">1- Crear editar Terceros</a>
+                <a href="#">1- Crear editar Empresas</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">2- Crear editar Empresas</a>
+                <a href="#">2- Crear editar Cuentas</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">3- Crear editar Cuentas</a>
+                <a href="#">3- Crear editar Usuarios/Roles</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">4- Crear editar Usuarios/Roles</a>
+                <a href="#">4- Crear editar Reportes</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">5- Crear editar Reportes</a>
+                <a href="#">5- Crear editar Documentos</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">6- Crear editar Documentos</a>
+                <a href="#">6- Crear editar Subcategorías</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">7- Crear editar Subcategorías</a>
+                <a href="#">7- Crear editar Organización Territorial y Códigos</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">8- Crear editar Organización Territorial y Códigos</a>
+                <a href="#">8- Crear editar Nomina</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">9- Crear editar Nomina</a>
+                <a href="#">9- Crear editar Inventarios</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">10- Crear editar Inventarios</a>
+                <a href="#">10- Crear editar Utilidades</a>
             </td>
         </tr>
         <tr>
             <td class="border-b hover:underline">
-                <a href="#">11- Crear editar Utilidades</a>
-            </td>
-        </tr>
-        <tr>
-            <td class="border-b hover:underline">
-                <a href="#">12- Crear editar Contabilidad</a>
+                <a href="#">11- Crear editar Contabilidad</a>
             </td>
         </tr>
     </table>

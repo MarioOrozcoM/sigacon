@@ -53,7 +53,10 @@
             <!-- Iterar sobre la lista de usuarios -->
             @foreach($users as $user)
             <tr class="user-row">
-                <td class="border border-gray-400 px-4 py-2 user-name">{{ $user->name }}</td>
+            <td class="border border-gray-400 px-4 py-2 user-name">
+                {{ $user->first_name }} {{ $user->second_name ? $user->second_name : '' }} 
+                {{ $user->first_lastname }} {{ $user->second_lastname ? $user->second_lastname : '' }}
+            </td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->email }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $user->rol }}</td>
                 <td class="border border-gray-400 px-4 py-2 flex items-center">

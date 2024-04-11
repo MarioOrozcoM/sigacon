@@ -26,7 +26,12 @@
 
 <!-- Inicio usuarioNombre -->
 <div class="top-left-info ml-8 mt-4 text-lg">
-    <p>Bienvenido: {{ $user->name }}</p>
+    <p>Bienvenido: 
+        {{ $user->first_name }} 
+        {{ $user->second_name ? $user->second_name : '' }} 
+        {{ $user->first_lastname }} 
+        {{ $user->second_lastname ? $user->second_lastname : '' }}
+    </p>
 </div>
 <!-- Cierre usuarioNombre -->
 

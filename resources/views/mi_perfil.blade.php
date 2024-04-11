@@ -40,7 +40,8 @@
                             <h1 class="text-2xl text-center font-bold">Mi Perfil</h1>
                             <div class="mb-4">
                             <label for="nombre" class="block font-semibold mb-2">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" value="{{ Auth::user()->name }}" readonly
+                            <input type="text" id="nombre" name="nombre" value="{{ Auth::user()->first_name }} {{ Auth::user()->second_name ? Auth::user()->second_name : '' }} {{ Auth::user()->first_lastname }} {{ Auth::user()->second_lastname ? Auth::user()->second_lastname : '' }}"
+ readonly
                                 class="w-full border border-gray-300 rounded-md py-2 px-4" disabled>
                             </div>
 

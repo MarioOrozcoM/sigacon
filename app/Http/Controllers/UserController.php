@@ -41,14 +41,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'sometimes|string|max:255', // Primer nombre
+            'second_name' => 'nullable|string|max:255', // Segundo nombre (opcional)
+            'first_lastname' => 'sometimes|string|max:255', // Primer apellido
+            'second_lastname' => 'nullable|string|max:255', // Segundo apellido (opcional)
             'email' => 'required|email|unique:user,email',
             'password' => 'required|string|min:6',
             'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
         ]);
 
         User::create([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'second_name' => $request->second_name,
+            'first_lastname' => $request->first_lastname,
+            'second_lastname' => $request->second_lastname,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'rol' => $request->rol,
@@ -88,13 +94,19 @@ class UserController extends Controller
 public function update(Request $request, User $user) //para actualizar la info editada del usuario
 {
     $request->validate([
-        'name' => 'required|string|max:255',
+        'first_name' => 'required|string|max:255',
+        'second_name' => 'nullable|string|max:255',
+        'first_lastname' => 'required|string|max:255',
+        'second_lastname' => 'nullable|string|max:255',
         'email' => 'required|email|unique:user,email,'.$user->id,
         'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
     ]);
 
     $user->update([
-        'name' => $request->name,
+        'first_name' => $request->first_name,
+        'second_name' => $request->second_name,
+        'first_lastname' => $request->first_lastname,
+        'second_lastname' => $request->second_lastname,
         'email' => $request->email,
         'rol' => $request->rol,
     ]);
@@ -112,7 +124,3 @@ public function toggle(User $user) //Para habilitar o inhabilitar un usuario
 
 
 }
-
-     
-
-

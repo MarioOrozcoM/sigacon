@@ -32,12 +32,24 @@
         @csrf
         @method('PUT')
         <div class="mb-4">
-            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
-            <input type="text" id="name" name="name" value="{{ $user->name }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+            <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2">Primer Nombre:</label>
+            <input type="text" id="first_name" name="first_name" value="{{ $user->first_name }}" autocomplete="given-name" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="second_name" class="block text-gray-700 text-sm font-bold mb-2">Segundo Nombre:</label>
+            <input type="text" id="second_name" name="second_name" value="{{ $user->second_name }}" autocomplete="additional-name" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="first_lastname" class="block text-gray-700 text-sm font-bold mb-2">Primer Apellido:</label>
+            <input type="text" id="first_lastname" name="first_lastname" value="{{ $user->first_lastname }}" autocomplete="family-name" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="second_lastname" class="block text-gray-700 text-sm font-bold mb-2">Segundo Apellido:</label>
+            <input type="text" id="second_lastname" name="second_lastname" value="{{ $user->second_lastname }}" autocomplete="additional-name" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
         <div class="mb-4">
             <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-            <input type="email" id="email" name="email" value="{{ $user->email }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+            <input type="email" id="email" name="email" value="{{ $user->email }}" autocomplete="email" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
         <div class="mb-4">
             <label for="rol" class="block text-gray-700 text-sm font-bold mb-2">Rol:</label>
@@ -53,6 +65,7 @@
     </form>
 </div>
 <!-- Fin formulario editar info usuario -->
+
 
 <!-- Inicio footer -->
 <footer class="bg-black text-white py-4 mt-auto">

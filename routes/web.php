@@ -53,9 +53,7 @@ Route::get('/crear_editar_catalogos', function () {
     return view('seccionAdministracion.crear_editar_catalogos');
 });
 
-Route::get('/terceros', function () {
-    return view('seccionAdministracion.terceros');
-});
+
 
 // Route::get('/admin/users', function () {
 //     return view('superUsuario.adminUsers');
