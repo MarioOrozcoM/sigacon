@@ -26,8 +26,9 @@
 <!-- Fin navegación superior -->
 
 <!-- Inicio formulario editar info usuario -->
-<div class="container mx-auto px-4 mt-8">
-    <h2 class="text-xl font-semibold mb-4">Editar Usuario</h2>
+<div class="container mx-auto px-4 mt-8 mb-6">
+    <h2 class="text-xl font-bold mb-4 text-center">Editar Usuario</h2>
+    <h2 class="text-xl font-semibold mb-4">Datos Generales:</h2>
     <form action="{{ route('users.update', $user->id) }}" method="POST">
         @csrf
         @method('PUT')

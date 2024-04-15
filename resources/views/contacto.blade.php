@@ -25,7 +25,7 @@
 </div>
 </header> <!-- Cierre navegación superior -->
 
-<div class="text-black text-center">
+<div class="text-black text-center mt-4">
   <h1 class=" text-2xl font-bold">CONTACTO</h1>
     <p class="text-lg">Diligencie el siguiente formulario para que un asesor se ponga en contacto con usted.</p>
 </div>

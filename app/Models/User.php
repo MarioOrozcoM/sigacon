@@ -62,6 +62,12 @@ class User extends Authenticatable
         $this->password = Hash::make($password);
         return $this->save();
     }
+
+    public function businessData()
+    {
+        return $this->hasOne(BusinessData::class);
+    }
+    
 }
 
 
