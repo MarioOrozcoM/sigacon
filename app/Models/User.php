@@ -30,7 +30,9 @@ class User extends Authenticatable
         'second_lastname',
         'email',
         'password',
-        'rol'
+        'rol',
+        'document_type',
+        'social_reason'
     ];
 
     /**

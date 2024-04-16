@@ -33,6 +33,18 @@
         @csrf
         @method('PUT')
         <div class="mb-4">
+            <label for="document_type" class="block text-gray-700 text-sm font-bold mb-2">Documento Identificación:</label>
+            <select name="document_type" id="document_type" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($document_types as $document_type)
+                    <option value="{{ $document_type }}" @if($user->document_type == $document_type) selected @endif>{{ $document_type }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="identification_number" class="block text-gray-700 text-sm font-bold mb-2">Número Identificación:</label>
+            <input type="number" id="identification_number" name="identification_number" value="{{ $user->identification_number }}" autocomplete="given-name" class="border border-gray-400 rounded-md py-2 px-3 w-full" disabled>
+        </div>
+        <div class="mb-4">
             <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2">Primer Nombre:</label>
             <input type="text" id="first_name" name="first_name" value="{{ $user->first_name }}" autocomplete="given-name" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
@@ -49,16 +61,20 @@
             <input type="text" id="second_lastname" name="second_lastname" value="{{ $user->second_lastname }}" autocomplete="additional-name" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
         <div class="mb-4">
-            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-            <input type="email" id="email" name="email" value="{{ $user->email }}" autocomplete="email" class="border border-gray-400 rounded-md py-2 px-3 w-full">
-        </div>
-        <div class="mb-4">
             <label for="rol" class="block text-gray-700 text-sm font-bold mb-2">Rol:</label>
             <select name="rol" id="rol" class="border border-gray-400 rounded-md py-2 px-3 w-full">
                 @foreach($roles as $rol)
                     <option value="{{ $rol }}" @if($user->rol == $rol) selected @endif>{{ $rol }}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="mb-4">
+            <label for="social_reason" class="block text-gray-700 text-sm font-bold mb-2">Razón Social:</label>
+            <input type="text" id="social_reason" name="social_reason" value="{{ $user->social_reason }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+            <input type="email" id="email" name="email" value="{{ $user->email }}" autocomplete="email" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
         <div class="mt-8">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Usuario</button>
@@ -69,13 +85,7 @@
 
 
 <!-- Inicio footer -->
-<footer class="bg-black text-white py-4 mt-auto">
-    <div class="container mx-auto px-4">
-        <div class="text-white text-2xl text-center">
-            <p>Todos los Derechos Reservados {{ date('Y') }} &copy;</p>
-        </div>
-    </div>
-</footer>
+@include('includes.footer')
 <!-- Fin footer -->
 
 </body>

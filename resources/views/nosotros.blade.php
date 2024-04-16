@@ -27,7 +27,7 @@
 
 
 <div> <!-- Inicio Área Nosotros -->
-    <h1 class="text-center text-2xl font-bold">NOSOTROS</h1>
+    <h1 class="text-center text-2xl font-bold mt-4">NOSOTROS</h1>
     <p class="text-gray-600 m-6 text-xl">
     <span class="text-orange-500 font-bold">SIGACON</span> es una empresa orientada a desarrollar y comercializar
     su plataforma, la cual permite a los usuarios obtener información ágil, segura y oportuna, 

@@ -34,7 +34,17 @@ class UserController extends Controller
             'inmobiliaria',
             'normalUser'
         ];
-        return view('superUsuario.editUsers', compact('roles'));
+
+        $document_types = [
+            'Cedula de Ciudadania',
+            'Cedula de Extranjeria',
+            'Pasaporte',
+            'Tarjeta Identidad',
+            'Nit'
+        ];
+
+        return view('superUsuario.editUsers', compact('roles', 'document_types'));
+
     }
 
     // Función para guardar un nuevo usuario en la base de datos
@@ -48,6 +58,9 @@ class UserController extends Controller
             'email' => 'required|email|unique:user,email',
             'password' => 'required|string|min:6',
             'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
+            'document_type' => 'required|string|in:Cedula de Ciudadania,Cedula de Extranjeria,Pasaporte,Tarjeta Identidad, Nit',
+            'identification_number' => 'required|string|min:6',
+            'social_reason' => 'nullable|string|max:255',
         ]);
 
         User::create([
@@ -58,6 +71,9 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'rol' => $request->rol,
+            'document_type' => $request->document_type,
+            'identification_number' => $request->identification_number,
+            'social_reason' => $request->social_reason,
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
@@ -87,8 +103,18 @@ class UserController extends Controller
         'inmobiliaria',
         'normalUser'
     ];
+    
+    $document_types = [
+        'Cedula de Ciudadania',
+        'Cedula de Extranjeria',
+        'Pasaporte',
+        'Tarjeta Identidad',
+        'Nit'
+    ];
 
-    return view('superUsuario.editUser', compact('user', 'roles'));
+    return view('superUsuario.editUser', compact('user', 'roles', 'document_types'));
+
+
 }
 
 public function update(Request $request, User $user) //para actualizar la info editada del usuario
@@ -100,6 +126,9 @@ public function update(Request $request, User $user) //para actualizar la info e
         'second_lastname' => 'nullable|string|max:255',
         'email' => 'required|email|unique:user,email,'.$user->id,
         'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
+        'document_type' => 'required|string|in:Cedula de Ciudadania,Cedula de Extranjeria,Pasaporte,Tarjeta Identidad, Nit',
+        'identification_number' => 'required|string',
+        'social_reason' => 'nullable|string|max:255',
     ]);
 
     $user->update([
@@ -109,6 +138,9 @@ public function update(Request $request, User $user) //para actualizar la info e
         'second_lastname' => $request->second_lastname,
         'email' => $request->email,
         'rol' => $request->rol,
+        'document_type' => $request->document_type,
+        'identification_number' => $request->identification_number,
+        'social_reason' => $request->social_reason,
     ]);
 
     return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
