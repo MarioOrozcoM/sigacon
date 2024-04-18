@@ -43,7 +43,17 @@ class UserController extends Controller
             'Nit'
         ];
 
-        return view('superUsuario.editUsers', compact('roles', 'document_types'));
+        $autoretenedor_rentas = [
+            'Si',
+            'No'
+        ];
+
+        $autoretenedor_ivas = [
+            'Si',
+            'No'
+        ];
+
+        return view('superUsuario.editUsers', compact('roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas'));
 
     }
 
@@ -61,6 +71,12 @@ class UserController extends Controller
             'document_type' => 'required|string|in:Cedula de Ciudadania,Cedula de Extranjeria,Pasaporte,Tarjeta Identidad, Nit',
             'identification_number' => 'required|string|min:6',
             'social_reason' => 'nullable|string|max:255',
+            'trade_name' => 'nullable|string|max:255',
+            'physical_address' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:15',
+            'cellphone' => 'nullable|string|max:15',
+            'autoretenedor_renta' => 'nullable|string|in: Si,No',
+            'autoretenedor_iva' => 'nullable|string|in: Si,No',
         ]);
 
         User::create([
@@ -74,6 +90,12 @@ class UserController extends Controller
             'document_type' => $request->document_type,
             'identification_number' => $request->identification_number,
             'social_reason' => $request->social_reason,
+            'trade_name' => $request->trade_name,
+            'physical_address' => $request->physical_address,
+            'phone' => $request->phone,
+            'cellphone' => $request->cellphone,
+            'autoretenedor_renta' => $request->autoretenedor_renta,
+            'autoretenedor_iva' => $request->autoretenedor_iva,
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
@@ -112,13 +134,24 @@ class UserController extends Controller
         'Nit'
     ];
 
-    return view('superUsuario.editUser', compact('user', 'roles', 'document_types'));
+    $autoretenedor_rentas = [
+        'Si',
+        'No'
+    ];
+
+    $autoretenedor_ivas = [
+        'Si',
+        'No'
+    ];
+
+    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas'));
 
 
 }
 
 public function update(Request $request, User $user) //para actualizar la info editada del usuario
 {
+
     $request->validate([
         'first_name' => 'required|string|max:255',
         'second_name' => 'nullable|string|max:255',
@@ -129,6 +162,12 @@ public function update(Request $request, User $user) //para actualizar la info e
         'document_type' => 'required|string|in:Cedula de Ciudadania,Cedula de Extranjeria,Pasaporte,Tarjeta Identidad, Nit',
         'identification_number' => 'required|string',
         'social_reason' => 'nullable|string|max:255',
+        'trade_name' => 'nullable|string|max:255',
+        'physical_address' => 'nullable|string|max:255',
+        'phone' => 'nullable|string|max:15',
+        'cellphone' => 'nullable|string|max:15',
+        'autoretenedor_renta' => 'nullable|string|in: Si,No',
+        'autoretenedor_iva' => 'nullable|string|in: Si,No',
     ]);
 
     $user->update([
@@ -141,6 +180,12 @@ public function update(Request $request, User $user) //para actualizar la info e
         'document_type' => $request->document_type,
         'identification_number' => $request->identification_number,
         'social_reason' => $request->social_reason,
+        'trade_name' => $request->trade_name,
+        'physical_address' => $request->physical_address,
+        'phone' => $request->phone,
+        'cellphone' => $request->cellphone,
+        'autoretenedor_renta' => $request->autoretenedor_renta,
+        'autoretenedor_iva' => $request->autoretenedor_iva,
     ]);
 
     return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');

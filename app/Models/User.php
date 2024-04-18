@@ -32,7 +32,13 @@ class User extends Authenticatable
         'password',
         'rol',
         'document_type',
-        'social_reason'
+        'social_reason',
+        'trade_name',
+        'physical_address',
+        'phone',
+        'cellphone',
+        'autoretenedor_renta',
+        'autoretenedor_iva'
     ];
 
     /**

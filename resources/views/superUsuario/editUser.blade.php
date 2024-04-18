@@ -41,8 +41,7 @@
             </select>
         </div>
         <div class="mb-4">
-            <label for="identification_number" class="block text-gray-700 text-sm font-bold mb-2">Número Identificación:</label>
-            <input type="number" id="identification_number" name="identification_number" value="{{ $user->identification_number }}" autocomplete="given-name" class="border border-gray-400 rounded-md py-2 px-3 w-full" disabled>
+        <input type="hidden" name="identification_number" value="{{ $user->identification_number }}">
         </div>
         <div class="mb-4">
             <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2">Primer Nombre:</label>
@@ -73,8 +72,41 @@
             <input type="text" id="social_reason" name="social_reason" value="{{ $user->social_reason }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
         <div class="mb-4">
+            <label for="trade_name" class="block text-gray-700 text-sm font-bold mb-2">Nombre Comercial:</label>
+            <input type="text" id="trade_name" name="trade_name" value="{{ $user->trade_name }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="physical_address" class="block text-gray-700 text-sm font-bold mb-2">Dirección Física:</label>
+            <input type="text" id="physical_address" name="physical_address" value="{{ $user->physical_address }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
             <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
             <input type="email" id="email" name="email" value="{{ $user->email }}" autocomplete="email" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Teléfono Fijo:</label>
+            <input type="number" id="phone" name="phone" value="{{ $user->phone }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="cellphone" class="block text-gray-700 text-sm font-bold mb-2">Celular:</label>
+            <input type="number" id="cellphone" name="cellphone" value="{{ $user->cellphone }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+        </div>
+        <h2 class="text-xl font-semibold mb-4">Datos Fiscales:</h2>
+        <div class="mb-4">
+            <label for="autoretenedor_renta" class="block text-gray-700 text-sm font-bold mb-2">AutoRetenedor Renta:</label>
+            <select name="autoretenedor_renta" id="autoretenedor_renta" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($autoretenedor_rentas as $autoretenedor_renta)
+                    <option value="{{ $autoretenedor_renta }}" @if($user->autoretenedor_renta == $autoretenedor_renta) selected @endif>{{ $autoretenedor_renta }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="autoretenedor_iva" class="block text-gray-700 text-sm font-bold mb-2">AutoRetenedor Iva:</label>
+            <select name="autoretenedor_iva" id="autoretenedor_iva" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($autoretenedor_ivas as $autoretenedor_iva)
+                    <option value="{{ $autoretenedor_iva }}" @if($user->autoretenedor_iva == $autoretenedor_iva) selected @endif>{{ $autoretenedor_iva }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mt-8">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Usuario</button>
