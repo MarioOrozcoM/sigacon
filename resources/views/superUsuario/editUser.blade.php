@@ -26,7 +26,7 @@
 <!-- Fin navegación superior -->
 
 <!-- Inicio formulario editar info usuario -->
-<div class="container mx-auto px-4 mt-8 mb-6">
+<div class="container mx-auto px-4 mt-8 mb-6 w-2/3">
     <h2 class="text-xl font-bold mb-4 text-center">Editar Usuario</h2>
     <h2 class="text-xl font-semibold mb-4">Datos Generales:</h2>
     <form action="{{ route('users.update', $user->id) }}" method="POST">
@@ -105,6 +105,38 @@
             <select name="autoretenedor_iva" id="autoretenedor_iva" class="border border-gray-400 rounded-md py-2 px-3 w-full">
                 @foreach($autoretenedor_ivas as $autoretenedor_iva)
                     <option value="{{ $autoretenedor_iva }}" @if($user->autoretenedor_iva == $autoretenedor_iva) selected @endif>{{ $autoretenedor_iva }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="autoretenedor_ica" class="block text-gray-700 text-sm font-bold mb-2">AutoRetenedor Ica:</label>
+            <select name="autoretenedor_ica" id="autoretenedor_ica" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($autoretenedor_icas as $autoretenedor_ica)
+                    <option value="{{ $autoretenedor_ica }}" @if($user->autoretenedor_ica == $autoretenedor_ica) selected @endif>{{ $autoretenedor_ica }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="responsable_iva" class="block text-gray-700 text-sm font-bold mb-2">Responsable de Iva:</label>
+            <select name="responsable_iva" id="responsable_iva" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($responsable_ivas as $responsable_iva)
+                    <option value="{{ $responsable_iva }}" @if($user->responsable_iva == $responsable_iva) selected @endif>{{ $responsable_iva }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="declarante_rsts" class="block text-gray-700 text-sm font-bold mb-2">Declarante de RSTS:</label>
+            <select name="declarante_rsts" id="declarante_rsts" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($declarante_rstss as $declarante_rsts)
+                    <option value="{{ $declarante_rsts }}" @if($user->declarante_rsts == $declarante_rsts) selected @endif>{{ $declarante_rsts }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="declarante_renta" class="block text-gray-700 text-sm font-bold mb-2">Declarante de Renta:</label>
+            <select name="declarante_renta" id="declarante_renta" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($declarante_rentas as $declarante_renta)
+                    <option value="{{ $declarante_renta }}" @if($user->declarante_renta == $declarante_renta) selected @endif>{{ $declarante_renta }}</option>
                 @endforeach
             </select>
         </div>

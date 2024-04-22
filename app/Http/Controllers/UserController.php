@@ -53,7 +53,27 @@ class UserController extends Controller
             'No'
         ];
 
-        return view('superUsuario.editUsers', compact('roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas'));
+        $autoretenedor_icas = [
+            'Si',
+            'No'
+        ];
+
+        $responsable_ivas = [
+            'Si',
+            'No'
+        ];
+
+        $declarante_rstss = [
+            'Si',
+            'No'
+        ];
+
+        $declarante_rentas = [
+            'Si',
+            'No'
+        ];
+
+        return view('superUsuario.editUsers', compact('roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas'));
 
     }
 
@@ -75,8 +95,12 @@ class UserController extends Controller
             'physical_address' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:15',
             'cellphone' => 'nullable|string|max:15',
-            'autoretenedor_renta' => 'nullable|string|in: Si,No',
-            'autoretenedor_iva' => 'nullable|string|in: Si,No',
+            'autoretenedor_renta' => 'nullable|string|in:Si,No',
+            'autoretenedor_iva' => 'nullable|string|in:Si,No',
+            'autoretenedor_ica' => 'nullable|string|in:Si,No',
+            'responsable_iva' => 'nullable|string|in:Si,No',
+            'declarante_rsts' => 'nullable|string|in:Si,No',
+            'declarante_renta' => 'nullable|string|in:Si,No'
         ]);
 
         User::create([
@@ -96,6 +120,10 @@ class UserController extends Controller
             'cellphone' => $request->cellphone,
             'autoretenedor_renta' => $request->autoretenedor_renta,
             'autoretenedor_iva' => $request->autoretenedor_iva,
+            'autoretenedor_ica' => $request->autoretenedor_ica,
+            'responsable_iva' => $request->responsable_iva,
+            'declarante_rsts' => $request->declarante_rsts,
+            'declarante_renta' => $request->declarante_renta,
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
@@ -144,7 +172,27 @@ class UserController extends Controller
         'No'
     ];
 
-    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas'));
+    $autoretenedor_icas = [
+        'Si',
+        'No'
+    ];
+
+    $responsable_ivas = [
+        'Si',
+        'No'
+    ];
+
+    $declarante_rstss = [
+        'Si',
+        'No'
+    ];
+
+    $declarante_rentas = [
+        'Si',
+        'No'
+    ];
+
+    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas'));
 
 
 }
@@ -166,8 +214,12 @@ public function update(Request $request, User $user) //para actualizar la info e
         'physical_address' => 'nullable|string|max:255',
         'phone' => 'nullable|string|max:15',
         'cellphone' => 'nullable|string|max:15',
-        'autoretenedor_renta' => 'nullable|string|in: Si,No',
-        'autoretenedor_iva' => 'nullable|string|in: Si,No',
+        'autoretenedor_renta' => 'nullable|string|in:Si,No',
+        'autoretenedor_iva' => 'nullable|string|in:Si,No',
+        'autoretenedor_ica' => 'nullable|string|in:Si,No',
+        'responsable_iva' => 'nullable|string|in:Si,No',
+        'declarante_rsts' => 'nullable|string|in:Si,No',
+        'declarante_renta' => 'nullable|string|in:Si,No',
     ]);
 
     $user->update([
@@ -186,6 +238,10 @@ public function update(Request $request, User $user) //para actualizar la info e
         'cellphone' => $request->cellphone,
         'autoretenedor_renta' => $request->autoretenedor_renta,
         'autoretenedor_iva' => $request->autoretenedor_iva,
+        'autoretenedor_ica' => $request->autoretenedor_ica,
+        'responsable_iva' => $request->responsable_iva,
+        'declarante_rsts' => $request->declarante_rsts,
+        'declarante_renta' => $request->declarante_renta,
     ]);
 
     return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');

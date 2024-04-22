@@ -585,9 +585,6 @@ video {
 .mt-auto {
   margin-top: auto;
 }
-.mt-6 {
-  margin-top: 1.5rem;
-}
 .block {
   display: block;
 }
@@ -641,6 +638,12 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-3\/4 {
+  width: 75%;
+}
+.w-2\/3 {
+  width: 66.666667%;
 }
 .max-w-md {
   max-width: 28rem;

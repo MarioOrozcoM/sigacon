@@ -38,7 +38,11 @@ class User extends Authenticatable
         'phone',
         'cellphone',
         'autoretenedor_renta',
-        'autoretenedor_iva'
+        'autoretenedor_iva',
+        'autoretenedor_ica',
+        'responsable_iva',
+        'declarante_rsts',
+        'declarante_renta'
     ];
 
     /**
