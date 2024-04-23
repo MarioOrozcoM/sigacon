@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
+
 class UserController extends Controller
 {
     // Función para mostrar la lista de usuarios
@@ -254,6 +255,9 @@ public function toggle(User $user) //Para habilitar o inhabilitar un usuario
 
     return redirect()->back()->with('success', 'Estado del usuario actualizado correctamente.');
 }
+
+
+
 
 
 }

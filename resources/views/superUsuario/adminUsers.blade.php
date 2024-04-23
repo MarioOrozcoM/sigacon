@@ -62,7 +62,7 @@
                 <td class="border border-gray-400 px-4 py-2 flex items-center">
                     <form class="mr-2" action="{{ route('users.edit', $user->id) }}">
                         @csrf
-                        <button type="submit" class="text-blue-500 hover:underline text-bold">Editar</button>
+                        <a href="{{ route('users.edit', $user->id) }}" class="text-blue-500 hover:underline text-bold mr-2">Editar</a>
                     </form>
                     <!-- En lugar de eliminar, inhabilitar/habilitar -->
                     @if ($user->rol !== 'superUsuario')

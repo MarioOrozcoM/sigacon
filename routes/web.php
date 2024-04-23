@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,3 +93,8 @@ Route::put('/users/{user}/toggle', [UserController::class, 'toggle'])->name('use
 // rutas para editar un usuario
 Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
+
+
+// Ruta para descargar el Excel de un usuario específico
+Route::get('/download-excel/{userId}', [ExcelController::class, 'downloadExcel'])->name('download.excel');
+

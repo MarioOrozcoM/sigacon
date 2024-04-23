@@ -144,6 +144,10 @@
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Usuario</button>
         </div>
     </form>
+    <!-- Enlace para descargar el archivo Excel -->
+    <div class="text-center mt-4">
+        <a href="{{ route('download.excel', ['userId' => $user->id]) }}" class="bg-green-300 hover:bg-green-400 text-black font-bold py-2 px-4 rounded">Descargar Excel</a>
+    </div>
 </div>
 <!-- Fin formulario editar info usuario -->
 
