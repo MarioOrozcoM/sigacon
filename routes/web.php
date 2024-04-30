@@ -98,3 +98,9 @@ Route::put('users/{user}', [UserController::class, 'update'])->name('users.updat
 // Ruta para descargar el Excel de un usuario específico
 Route::get('/download-excel/{userId}', [ExcelController::class, 'downloadExcel'])->name('download.excel');
 
+Route::get('/get-states/{country_id}', [UserController::class, 'getStates'])->name('get.states');
+
+Route::get('/get-cities/{state_id}', [UserController::class, 'getCities'])->name('get.cities');
+
+
+

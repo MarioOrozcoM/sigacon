@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Country;
+use App\Models\State;
+use App\Models\City;
+
 
 class User extends Authenticatable
 {
@@ -42,7 +46,10 @@ class User extends Authenticatable
         'autoretenedor_ica',
         'responsable_iva',
         'declarante_rsts',
-        'declarante_renta'
+        'declarante_renta',
+        'country_id',
+        'state_id',
+        'city_id'
     ];
 
     /**
@@ -80,6 +87,23 @@ class User extends Authenticatable
         return $this->hasOne(BusinessData::class);
     }
     
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+
 }
 
 

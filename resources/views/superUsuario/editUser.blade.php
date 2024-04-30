@@ -140,6 +140,24 @@
                 @endforeach
             </select>
         </div>
+        <div class="mb-4">
+            <label for="country_id" class="block text-gray-700 text-sm font-bold mb-2">País:</label>
+            <select name="country_id" id="country_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($countries as $country)
+                    <option value="{{ $country->id }}" @if($user->country_id == $country->id) selected @endif>{{ $country->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="state_id" class="block text-gray-700 text-sm font-bold mb-2">Estado/Departamento:</label>
+            <select name="state_id" id="state_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($states as $state)
+                    <option value="{{ $state->id }}" @if($user->state_id == $state->id) selected @endif>{{ $state->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+
         <div class="mt-8">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Usuario</button>
         </div>
@@ -150,6 +168,35 @@
     </div>
 </div>
 <!-- Fin formulario editar info usuario -->
+
+
+<!-- js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('#country_id').change(function() {
+        var country_id = $(this).val();
+        if (country_id) {
+            $.ajax({
+                type: 'GET',
+                url: '/get-states/' + country_id,
+                success: function(states) {
+                    $('#state_id').empty();
+                    $.each(states, function(key, value) {
+                        $('#state_id').append('<option value="' + key + '">' + value + '</option>');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        } else {
+            $('#state_id').empty();
+        }
+    });
+});
+</script>
+<!-- js -->
 
 
 <!-- Inicio footer -->

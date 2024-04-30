@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Country;
+use App\Models\State;
+use App\Models\City;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -74,6 +78,8 @@ class UserController extends Controller
             'No'
         ];
 
+
+
         return view('superUsuario.editUsers', compact('roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas'));
 
     }
@@ -126,6 +132,8 @@ class UserController extends Controller
             'declarante_rsts' => $request->declarante_rsts,
             'declarante_renta' => $request->declarante_renta,
         ]);
+
+        
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
     }
@@ -193,7 +201,11 @@ class UserController extends Controller
         'No'
     ];
 
-    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas'));
+    $countries = Country::all();
+    $states = State::all();
+    // $cities = City::all();
+
+    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas', 'countries', 'states'));
 
 
 }
@@ -221,6 +233,9 @@ public function update(Request $request, User $user) //para actualizar la info e
         'responsable_iva' => 'nullable|string|in:Si,No',
         'declarante_rsts' => 'nullable|string|in:Si,No',
         'declarante_renta' => 'nullable|string|in:Si,No',
+        'country_id' => 'required|exists:countries,id',
+        'state_id' => 'required|exists:states,id',
+        // 'city_id' => 'required|exists:cities,id',
     ]);
 
     $user->update([
@@ -243,6 +258,9 @@ public function update(Request $request, User $user) //para actualizar la info e
         'responsable_iva' => $request->responsable_iva,
         'declarante_rsts' => $request->declarante_rsts,
         'declarante_renta' => $request->declarante_renta,
+        'country_id' => $request->country_id,
+        'state_id' => $request->state_id,
+        // 'city_id' => $request->city_id,
     ]);
 
     return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
@@ -257,6 +275,17 @@ public function toggle(User $user) //Para habilitar o inhabilitar un usuario
 }
 
 
+public function getStates($country_id)
+{
+    $states = State::where('country_id', $country_id)->pluck('name', 'id');
+    return response()->json($states);
+}
+
+// public function getCities($state_id)
+// {
+//     $cities = City::where('state_id', $state_id)->pluck('name', 'id');
+//     return response()->json($cities);
+// }
 
 
 
