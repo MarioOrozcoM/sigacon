@@ -26,7 +26,8 @@
 <!-- Fin navegación superior -->
 
 <!-- Inicio formulario editar info usuario -->
-<div class="container mx-auto px-4 mt-8 mb-6 w-2/3">
+<div class="container mx-auto px-4 mt-8 mb-6 grid grid-cols-2 gap-4">
+    <div>
     <h2 class="text-xl font-bold mb-4 text-center">Editar Usuario</h2>
     <h2 class="text-xl font-semibold mb-4">Datos Generales:</h2>
     <form action="{{ route('users.update', $user->id) }}" method="POST">
@@ -115,6 +116,9 @@
                 @endforeach
             </select>
         </div>
+        </div>
+        <div>
+        <div class="mb-11"></div>
         <h2 class="text-xl font-semibold mb-4">Datos Fiscales:</h2>
         <div class="mb-4">
             <label for="autoretenedor_renta" class="block text-gray-700 text-sm font-bold mb-2">AutoRetenedor Renta:</label>
@@ -164,7 +168,8 @@
                 @endforeach
             </select>
         </div>
-
+        </div>
+        <!-- Botón para actualizar los datos -->
         <div class="mt-8">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Usuario</button>
         </div>

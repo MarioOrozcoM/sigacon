@@ -37,7 +37,11 @@
     <h2 class="text-xl font-semibold">Lista de Usuarios</h2>
     
     <!-- Barra de búsqueda -->
-    <input type="text" id="searchInput" placeholder="Buscar por nombre" class="border border-gray-400 px-4 py-2 mb-4">
+    <div class="mt-4">
+    <input type="text" id="searchInput" placeholder="Buscar por nombre" class="border border-gray-400 px-4 py-2 mb-4 mr-6">
+    <!-- Agregar Usuario -->
+    <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Agregar Usuario</a>
+    </div>
     
     <!-- Lista de usuarios -->
     <table class="w-full border-collapse border border-gray-400">
@@ -83,7 +87,7 @@
     </table>
 
     <!-- Botón para agregar usuario -->
-    <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Agregar Usuario</a>
+
 </div>
 <!-- Fin administrar usuarios -->
 
