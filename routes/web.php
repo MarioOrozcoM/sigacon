@@ -100,7 +100,6 @@ Route::get('/download-excel/{userId}', [ExcelController::class, 'downloadExcel']
 
 Route::get('/get-states/{country_id}', [UserController::class, 'getStates'])->name('get.states');
 
+
 Route::get('/get-cities/{state_id}', [UserController::class, 'getCities'])->name('get.cities');
-
-
 

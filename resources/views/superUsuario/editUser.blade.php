@@ -91,6 +91,30 @@
             <label for="cellphone" class="block text-gray-700 text-sm font-bold mb-2">Celular:</label>
             <input type="number" id="cellphone" name="cellphone" value="{{ $user->cellphone }}" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
+        <div class="mb-4">
+            <label for="country_id" class="block text-gray-700 text-sm font-bold mb-2">País:</label>
+            <select name="country_id" id="country_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($countries as $country)
+                    <option value="{{ $country->id }}" @if($user->country_id == $country->id) selected @endif>{{ $country->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="state_id" class="block text-gray-700 text-sm font-bold mb-2">Estado/Departamento:</label>
+            <select name="state_id" id="state_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($states as $state)
+                    <option value="{{ $state->id }}" @if($user->state_id == $state->id) selected @endif>{{ $state->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="city_id" class="block text-gray-700 text-sm font-bold mb-2">Ciudad:</label>
+            <select name="city_id" id="city_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
+                @foreach($cities as $city)
+                    <option value="{{ $city->id }}" @if($user->city_id == $city->id) selected @endif>{{ $city->name }}</option>
+                @endforeach
+            </select>
+        </div>
         <h2 class="text-xl font-semibold mb-4">Datos Fiscales:</h2>
         <div class="mb-4">
             <label for="autoretenedor_renta" class="block text-gray-700 text-sm font-bold mb-2">AutoRetenedor Renta:</label>
@@ -140,23 +164,6 @@
                 @endforeach
             </select>
         </div>
-        <div class="mb-4">
-            <label for="country_id" class="block text-gray-700 text-sm font-bold mb-2">País:</label>
-            <select name="country_id" id="country_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
-                @foreach($countries as $country)
-                    <option value="{{ $country->id }}" @if($user->country_id == $country->id) selected @endif>{{ $country->name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="mb-4">
-            <label for="state_id" class="block text-gray-700 text-sm font-bold mb-2">Estado/Departamento:</label>
-            <select name="state_id" id="state_id" class="border border-gray-400 rounded-md py-2 px-3 w-full">
-                @foreach($states as $state)
-                    <option value="{{ $state->id }}" @if($user->state_id == $state->id) selected @endif>{{ $state->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
 
         <div class="mt-8">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Usuario</button>
@@ -194,7 +201,27 @@
             $('#state_id').empty();
         }
     });
-});
+    $('#state_id').change(function() {
+            var state_id = $(this).val();
+            if (state_id) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/get-cities/' + state_id,
+                    success: function(cities) {
+                        $('#city_id').empty();
+                        $.each(cities, function(key, value) {
+                            $('#city_id').append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            } else {
+                $('#city_id').empty();
+            }
+        });
+    });
 </script>
 <!-- js -->
 

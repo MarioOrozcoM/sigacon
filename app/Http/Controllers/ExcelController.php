@@ -35,13 +35,21 @@ class ExcelController extends Controller
         $sheet->setCellValue('K1', 'Email');
         $sheet->setCellValue('L1', 'Teléfono');
         $sheet->setCellValue('M1', 'Celular');
-        $sheet->setCellValue('N1', 'Autoretenedor Renta');
-        $sheet->setCellValue('O1', 'Autoretenedor Iva');
-        $sheet->setCellValue('P1', 'Autoretenedor ICA');
-        $sheet->setCellValue('Q1', 'Responsable de IVA');
-        $sheet->setCellValue('R1', 'Declarante de RSTS');
-        $sheet->setCellValue('S1', 'Declarante de Renta');
+        $sheet->setCellValue('N1', 'País');
+        $sheet->setCellValue('O1', 'Estado/Departamento');
+        $sheet->setCellValue('P1', 'Ciudad');
+        $sheet->setCellValue('Q1', 'Autoretenedor Renta');
+        $sheet->setCellValue('R1', 'Autoretenedor Iva');
+        $sheet->setCellValue('S1', 'Autoretenedor ICA');
+        $sheet->setCellValue('T1', 'Responsable de IVA');
+        $sheet->setCellValue('U1', 'Declarante de RSTS');
+        $sheet->setCellValue('V1', 'Declarante de Renta');
         // Agregar más encabezados según sea necesario...
+
+                // Obtener los nombres del país, estado y ciudad del usuario
+                $countryName = $user->country->name;
+                $stateName = $user->state->name;
+                $cityName = $user->city->name;
 
         // Agregar datos del usuario al archivo Excel
         $sheet->setCellValue('A2', $user->document_type);
@@ -57,16 +65,19 @@ class ExcelController extends Controller
         $sheet->setCellValue('K2', $user->email);
         $sheet->setCellValue('L2', $user->phone);
         $sheet->setCellValue('M2', $user->cellphone);
-        $sheet->setCellValue('N2', $user->autoretenedor_renta);
-        $sheet->setCellValue('O2', $user->autoretenedor_iva);
-        $sheet->setCellValue('P2', $user->autoretenedor_ica);
-        $sheet->setCellValue('Q2', $user->responsable_iva);
-        $sheet->setCellValue('R2', $user->declarante_rsts);
-        $sheet->setCellValue('S2', $user->declarante_renta);
+        $sheet->setCellValue('N2', $countryName);
+        $sheet->setCellValue('O2', $stateName);
+        $sheet->setCellValue('P2', $cityName);
+        $sheet->setCellValue('Q2', $user->autoretenedor_renta);
+        $sheet->setCellValue('R2', $user->autoretenedor_iva);
+        $sheet->setCellValue('S2', $user->autoretenedor_ica);
+        $sheet->setCellValue('T2', $user->responsable_iva);
+        $sheet->setCellValue('U2', $user->declarante_rsts);
+        $sheet->setCellValue('V2', $user->declarante_renta);
         // Agregar más datos según sea necesario...
 
         // Ajustar el ancho de las columnas automáticamente según el contenido
-        foreach (range('A', 'S') as $column) {
+        foreach (range('A', 'V') as $column) {
             $sheet->getColumnDimension($column)->setAutoSize(true);
         }
 

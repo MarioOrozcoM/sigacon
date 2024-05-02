@@ -203,9 +203,10 @@ class UserController extends Controller
 
     $countries = Country::all();
     $states = State::all();
-    // $cities = City::all();
+    $cities = City::where('state_id', $user->state_id)->get();
 
-    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas', 'countries', 'states'));
+
+    return view('superUsuario.editUser', compact('user', 'roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas', 'countries', 'states', 'cities'));
 
 
 }
@@ -235,7 +236,6 @@ public function update(Request $request, User $user) //para actualizar la info e
         'declarante_renta' => 'nullable|string|in:Si,No',
         'country_id' => 'required|exists:countries,id',
         'state_id' => 'required|exists:states,id',
-        // 'city_id' => 'required|exists:cities,id',
     ]);
 
     $user->update([
@@ -260,7 +260,7 @@ public function update(Request $request, User $user) //para actualizar la info e
         'declarante_renta' => $request->declarante_renta,
         'country_id' => $request->country_id,
         'state_id' => $request->state_id,
-        // 'city_id' => $request->city_id,
+        'city_id' => $request->city_id,
     ]);
 
     return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
@@ -281,11 +281,11 @@ public function getStates($country_id)
     return response()->json($states);
 }
 
-// public function getCities($state_id)
-// {
-//     $cities = City::where('state_id', $state_id)->pluck('name', 'id');
-//     return response()->json($cities);
-// }
+public function getCities($state_id)
+{
+    $cities = City::where('state_id', $state_id)->pluck('name', 'id');
+    return response()->json($cities);
+}
 
 
 
