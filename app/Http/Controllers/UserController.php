@@ -79,8 +79,12 @@ class UserController extends Controller
         ];
 
 
+        $countries = Country::all();
+        $states = State::all();
+        $cities = City::where('state_id', $states->first()->id)->get();
 
-        return view('superUsuario.editUsers', compact('roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas'));
+
+        return view('superUsuario.editUsers', compact('roles', 'document_types', 'autoretenedor_rentas', 'autoretenedor_ivas', 'autoretenedor_icas', 'responsable_ivas', 'declarante_rstss', 'declarante_rentas', 'countries', 'states', 'cities'));
 
     }
 
@@ -94,7 +98,7 @@ class UserController extends Controller
             'second_lastname' => 'nullable|string|max:255', // Segundo apellido (opcional)
             'email' => 'required|email|unique:user,email',
             'password' => 'required|string|min:6',
-            'rol' => 'required|string|in:superUsuario,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,normalUser', // Define los roles permitidos aquí
+            'rol' => 'required|string|in:normalUser,contador,administrador,repreLegal,juntaDirectiva,revisorFiscal,propietario,proveedor,cliente,inmobiliaria,superUsuario', // Define los roles permitidos aquí
             'document_type' => 'required|string|in:Cedula de Ciudadania,Cedula de Extranjeria,Pasaporte,Tarjeta Identidad, Nit',
             'identification_number' => 'required|string|min:6',
             'social_reason' => 'nullable|string|max:255',
@@ -107,7 +111,10 @@ class UserController extends Controller
             'autoretenedor_ica' => 'nullable|string|in:Si,No',
             'responsable_iva' => 'nullable|string|in:Si,No',
             'declarante_rsts' => 'nullable|string|in:Si,No',
-            'declarante_renta' => 'nullable|string|in:Si,No'
+            'declarante_renta' => 'nullable|string|in:Si,No',
+            'country_id' => 'required|exists:countries,id',
+            'state_id' => 'required|exists:states,id',
+            'city_id' => 'required|exists:cities,id',
         ]);
 
         User::create([
@@ -131,6 +138,9 @@ class UserController extends Controller
             'responsable_iva' => $request->responsable_iva,
             'declarante_rsts' => $request->declarante_rsts,
             'declarante_renta' => $request->declarante_renta,
+            'country_id' => $request->country_id,
+            'state_id' => $request->state_id,
+            'city_id' => $request->city_id,
         ]);
 
         
@@ -236,6 +246,7 @@ public function update(Request $request, User $user) //para actualizar la info e
         'declarante_renta' => 'nullable|string|in:Si,No',
         'country_id' => 'required|exists:countries,id',
         'state_id' => 'required|exists:states,id',
+        'city_id' => 'required|exists:cities,id',
     ]);
 
     $user->update([

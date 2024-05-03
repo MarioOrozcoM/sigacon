@@ -36,6 +36,7 @@ class User extends Authenticatable
         'password',
         'rol',
         'document_type',
+        'identification_number',
         'social_reason',
         'trade_name',
         'physical_address',
