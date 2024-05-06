@@ -13,11 +13,12 @@
         <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-60">
         
         <div class="flex space-x-4 text-white text-lg">
-            <a href="{{ url('/main') }}" class="hover:text-gray-400">Inicio</a>
-            <a href="{{ url('/admin/users') }}" class="hover:text-gray-400">Usuarios</a>
+            <a href="{{ url('/main') }}" class="hover:text-gray-400">INICIO</a>
+            <a href="{{ url('/admin/users') }}" class="hover:text-gray-400">USUARIOS</a>
+            <a href="#" class="hover:text-gray-400">EMPRESAS</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
+                <button type="submit" class="hover:text-gray-400">CERRAR SESIÓN</button>
             </form>
         </div>
     </div>
