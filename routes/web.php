@@ -54,6 +54,9 @@ Route::get('/crear_editar_catalogos', function () {
     return view('seccionAdministracion.crear_editar_catalogos');
 });
 
+Route::get('/adminEmpresas', function () {
+    return view('superUsuario.empresas.adminEmpresas');
+});
 
 
 // Route::get('/admin/users', function () {

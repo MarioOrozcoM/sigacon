@@ -15,10 +15,10 @@
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-60">
         
         <div class="flex space-x-4 text-lg">
-            <a href="{{ url('/mi_perfil') }}" class="hover:text-gray-400">Perfil</a>
+            <a href="{{ url('/mi_perfil') }}" class="hover:text-gray-400">PERFIL</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
+                <button type="submit" class="hover:text-gray-400">CERRAR SESIÓN</button>
             </form>
         </div>
     </div>

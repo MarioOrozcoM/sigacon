@@ -14,11 +14,11 @@
         
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-60">
         
-        <div class="flex space-x-4 text-lg">
+        <div class="flex space-x-4 text-lg uppercase">
             <a href="{{ url('/logados') }}" class="hover:text-gray-400">Regresar</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="hover:text-gray-400">Cerrar Sesión</button>
+                <button type="submit" class="hover:text-gray-400 uppercase">Cerrar Sesión</button>
             </form>
         </div>
     </div>
