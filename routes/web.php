@@ -5,6 +5,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\EmpresaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,9 +55,9 @@ Route::get('/crear_editar_catalogos', function () {
     return view('seccionAdministracion.crear_editar_catalogos');
 });
 
-Route::get('/adminEmpresas', function () {
-    return view('superUsuario.empresas.adminEmpresas');
-});
+// Route::get('/adminEmpresas', function () {
+//     return view('superUsuario.empresas.adminEmpresas');
+// });
 
 
 // Route::get('/admin/users', function () {
@@ -106,3 +107,15 @@ Route::get('/get-states/{country_id}', [UserController::class, 'getStates'])->na
 
 Route::get('/get-cities/{state_id}', [UserController::class, 'getCities'])->name('get.cities');
 
+
+// Rutas para mostrar la lista de empresas y crear una nueva empresa
+Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
+Route::get('/empresas/create', [EmpresaController::class, 'create'])->name('empresas.create');
+Route::post('/empresas', [EmpresaController::class, 'store'])->name('empresas.store');
+
+// Rutas para mostrar el formulario de edición y actualizar una empresa
+Route::get('/empresas/{empresa}/edit', [EmpresaController::class, 'edit'])->name('empresas.edit');
+Route::put('/empresas/{empresa}', [EmpresaController::class, 'update'])->name('empresas.update');
+
+// Ruta para habilitar o inhabilitar una empresa
+Route::put('/empresas/{empresa}/toggle', [EmpresaController::class, 'toggle'])->name('empresas.toggle');
