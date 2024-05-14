@@ -73,7 +73,6 @@
         </tbody>
     </table>
 
-    <!-- Botón para agregar usuario -->
 
 </div>
 <!-- Fin administrar usuarios -->

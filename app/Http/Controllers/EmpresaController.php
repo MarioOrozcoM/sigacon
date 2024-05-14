@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmpresaController extends Controller
 {
@@ -11,13 +12,18 @@ class EmpresaController extends Controller
     public function index()
     {
         $empresas = Empresa::all();
-        return view('superUsuario.empresas.adminEmpresas', compact('empresas'));
+        $empresa = $empresas;
+        return view('superUsuario.empresas.adminEmpresas', compact('empresas'), ['empresa' => $empresa]);
     }
 
     // Función para mostrar el formulario de creación de empresa
     public function create()
     {
-        return view('superUsuario.empresas.createEmpresa');
+
+        $tiposEmpresa = ['Comercial', 'Servicios', 'Propiedad Horizontal', 'Asociacion', 'Salud', 'Industrial', 'Fundacion'];
+        $tamañosEmpresa = ['Grande', 'Mediana', 'Pequeña', 'Micro'];
+
+        return view('superUsuario.empresas.createEmpresa', compact('tiposEmpresa', 'tamañosEmpresa'));
     }
 
     // Función para guardar una nueva empresa en la base de datos
@@ -26,6 +32,39 @@ class EmpresaController extends Controller
         // Validar los datos del formulario
         $request->validate([
             // Define las reglas de validación según tus necesidades
+        'codigo_empresa' => 'nullable|string|max:45',
+        'tipo_empresa' => 'required|string|in:Comercial,Servicios,Propiedad Horizontal,Asociacion,Salud,Industrial,Fundacion',
+        'numero_identificacion' => 'nullable|string|max:15',
+        'persona_juridica' => 'nullable|string|max:10',
+        'primer_nombre' => 'nullable|string|max:30',
+        'segundo_nombre' => 'nullable|string|max:30',
+        'primer_apellido' => 'nullable|string|max:30',
+        'segundo_apellido' => 'nullable|string|max:30',
+        'razon_social' => 'nullable|string|max:250',
+        'nombre_comercial' => 'nullable|string|max:100',
+        'numero_identificacion_repre' => 'nullable|string|max:15',
+        'fecha_inicio_repre' => 'nullable|date',
+        'numero_acta_repre' => 'nullable|string|max:20',
+        'numero_identificacion_suplente' => 'nullable|string|max:15',
+        'fecha_inicio_suplente' => 'nullable|date',
+        'numero_acta_suplente' => 'nullable|string|max:20',
+        'numero_identificacion_contador' => 'nullable|string|max:15',
+        'fecha_inicio_contador' => 'nullable|date',
+        'tarjeta_profesional_contador' => 'nullable|string|max:30',
+        'numero_identificacion_revisor' => 'nullable|string|max:15',
+        'fecha_inicio_revisor' => 'nullable|date',
+        'tarjeta_profesional_revisor' => 'nullable|string|max:30',
+        'numero_acta_revisor' => 'nullable|string|max:20',
+        'numero_identificacion_socio' => 'nullable|string|max:15',
+        'fecha_registro_socio' => 'nullable|date',
+        'numero_acciones' => 'nullable|string|max:15',
+        'numero_titulo' => 'nullable|string|max:10',
+        'numero_resolucion' => 'nullable|string|max:15',
+        'fecha_resolucion' => 'nullable|date',
+        'rangos_numeracion' => 'nullable|string|max:20',
+        'observaciones' => 'nullable|string|max:250',
+        'logo' => 'nullable|string|max:250',
+        'tamaño_empresa' => 'nullable|string|in:Grande,Mediana,Pequeña,Micro',
         ]);
 
         // Crear una nueva empresa
