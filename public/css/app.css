@@ -627,6 +627,9 @@ video {
 .w-1\/5 {
   width: 20%;
 }
+.w-1\/6 {
+  width: 16.666667%;
+}
 .w-3\/5 {
   width: 60%;
 }
@@ -638,6 +641,9 @@ video {
 }
 .w-60 {
   width: 15rem;
+}
+.w-auto {
+  width: auto;
 }
 .w-full {
   width: 100%;

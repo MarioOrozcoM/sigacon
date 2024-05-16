@@ -13,6 +13,7 @@
 <!-- Fin navegación superior -->
 
 <h2 class="text-xl font-semibold text-center mt-4">Agregar Nuevo Usuario</h2>
+
 <!-- Inicio formulario para agregar usuario -->
 <div class="container mx-auto px-4 mt-8 mb-6 grid grid-cols-2 gap-4">
     <div>

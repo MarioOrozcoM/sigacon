@@ -33,10 +33,10 @@
     <table class="w-full border-collapse border border-gray-400">
         <thead>
             <tr>
-                <th class="border border-gray-400 px-4 py-2">Codigo Empresa</th>
-                <th class="border border-gray-400 px-4 py-2">Nombre Comercial</th>
+                <th class="border border-gray-400 px-4 py-2 w-1/6">Código Empresa</th>
+                <th class="border border-gray-400 px-4 py-2 w-auto">Nombre Comercial</th>
                 <th class="border border-gray-400 px-4 py-2">Logotipo</th>
-                <!-- <th class="border border-gray-400 px-4 py-2 w-40">Acciones</th> -->
+                <th class="border border-gray-400 px-4 py-2 w-40">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -47,7 +47,7 @@
                 {{ $empresa->codigo_empresa }}
 
             </td>
-                <td class="border border-gray-400 px-4 py-2">{{ $empresa->nombre_comercial }}</td>
+                <td class="border border-gray-400 px-4 py-2 nombre-comercial">{{ $empresa->nombre_comercial }}</td>
                 <td class="border border-gray-400 px-4 py-2">{{ $empresa->logo }}</td>
                 <td class="border border-gray-400 px-4 py-2 flex items-center">
                     <form class="mr-2" action="{{ route('empresas.edit', $empresa->id) }}">
@@ -73,6 +73,33 @@
 </div>
 <!-- Fin Administrar Empresas -->
 
+
+
+<!-- Inicio JS para barra de búsqueda -->
+<script src="{{ mix('js/app.js') }}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.trim().toLowerCase();
+
+            const empresas = document.querySelectorAll('.user-row');
+
+            empresas.forEach(function(empresa) {
+                const nombreComercial = empresa.querySelector('.nombre-comercial').textContent.trim().toLowerCase();
+                
+                if (nombreComercial.includes(searchTerm)) {
+                    empresa.style.display = 'table-row';
+                } else {
+                    empresa.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+<!-- Fin JS para barra de búsqueda -->
 
 
 <!-- Inicio footer -->
