@@ -45,7 +45,7 @@ class Empresa extends Model
         'rangos_numeracion',
         'observaciones',
         'logo',
-        'tamaño_empresa',
+        'tamano_empresa',
 
     ];
     

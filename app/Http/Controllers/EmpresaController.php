@@ -21,9 +21,9 @@ class EmpresaController extends Controller
     {
 
         $tiposEmpresa = ['Comercial', 'Servicios', 'Propiedad Horizontal', 'Asociacion', 'Salud', 'Industrial', 'Fundacion'];
-        $tamañosEmpresa = ['Grande', 'Mediana', 'Pequeña', 'Micro'];
+        $tamanosEmpresa = ['Grande', 'Mediana', 'Pequeña', 'Micro'];
 
-        return view('superUsuario.empresas.createEmpresa', compact('tiposEmpresa', 'tamañosEmpresa'));
+        return view('superUsuario.empresas.createEmpresa', compact('tiposEmpresa', 'tamanosEmpresa'));
     }
 
     // Función para guardar una nueva empresa en la base de datos
@@ -64,7 +64,7 @@ class EmpresaController extends Controller
         'rangos_numeracion' => 'nullable|string|max:20',
         'observaciones' => 'nullable|string|max:250',
         'logo' => 'nullable|string|max:250',
-        'tamaño_empresa' => 'nullable|string|in:Grande,Mediana,Pequeña,Micro',
+        'tamano_empresa' => 'nullable|string|in:Grande,Mediana,Pequeña,Micro',
         ]);
 
         // Crear una nueva empresa
