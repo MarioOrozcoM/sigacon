@@ -16,7 +16,7 @@
 <!-- Inicio Formulario crear empresa -->
 <div class="container mx-auto px-4 mt-8 mb-6 mr-4 grid grid-cols-2 gap-4">
     <div class="w-3/4"> <!-- Columna izquierda -->
-        <form action="{{ route('empresas.store') }}" method="POST">
+        <form action="{{ route('empresas.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <h2 class="text-xl font-semibold text-center mt-4">Datos Empresa</h2>
             <div class="mb-4">
@@ -105,6 +105,11 @@
                 <label for="tarjeta_profesional_contador" class="block text-gray-700 text-sm font-bold mb-2">Tarjeta Profesional:</label>
                 <input type="text" id="tarjeta_profesional_contador" name="tarjeta_profesional_contador" value="{{ old('tarjeta_profesional_contador') }}"  class="border border-gray-400 rounded-md py-2 px-3 w-full">
             </div>
+
+    </div> <!-- Columna izquierda -->
+
+            <div class="w-3/4"> <!-- Columna derecha -->
+
             <h2 class="text-xl font-semibold text-center mt-4">Revisor Fiscal</h2>
             <div class="mb-4">
                 <label for="numero_identificacion_revisor" class="block text-gray-700 text-sm font-bold mb-2">Número de Identificación:</label>
@@ -122,9 +127,6 @@
                 <label for="numero_acta_revisor" class="block text-gray-700 text-sm font-bold mb-2">Número de Acta:</label>
                 <input type="text" id="numero_acta_revisor" name="numero_acta_revisor" value="{{ old('numero_acta_revisor') }}"  class="border border-gray-400 rounded-md py-2 px-3 w-full">
             </div>
-    </div> <!-- Columna izquierda -->
-
-            <div class="w-3/4"> <!-- Columna derecha -->
 
             <h2 class="text-xl font-semibold text-center mt-4">Socios/Asociados/Accionistas</h2>
             <div class="mb-4">
@@ -175,6 +177,10 @@
                     @endforeach
                 </select>
             </div>
+            <!-- Botón para crear la empresa -->
+            <div class="mt-8">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Empresa</button>
+            </div>
 
             </div> <!-- Columna derecha -->
         </form>
@@ -184,13 +190,7 @@
 
 
 <!-- Inicio footer -->
-<footer class="bg-black text-white py-4 mt-auto">
-    <div class="container mx-auto px-4">
-        <div class="text-white text-2xl text-center">
-            <p>Todos los Derechos Reservados {{ date('Y') }} &copy;</p>
-        </div>
-    </div>
-</footer>
+@include('includes.footer')
 <!-- Fin footer -->
 
 </body>

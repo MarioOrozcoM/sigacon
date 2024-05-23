@@ -34,10 +34,10 @@
         <thead>
             <tr>
                 <th class="border border-gray-400 px-4 py-2 w-1/6">Código Empresa</th>
-                <th class="border border-gray-400 px-4 py-2 w-auto">Nombre Comercial</th>
-                <th class="border border-gray-400 px-4 py-2">Logotipo</th>
-                <th class="border border-gray-400 px-4 py-2 w-40">Acciones</th>
-            </tr>
+                <th class="border border-gray-400 px-4 py-2 w-1/3">Nombre Comercial</th>
+                <th class="border border-gray-400 px-4 py-2 w-1/4">Logotipo</th>
+                <th class="border border-gray-400 px-4 py-2 w-1/12">Acciones</th>
+            </t
         </thead>
         <tbody>
             <!-- Iterar sobre la lista de usuarios -->
@@ -48,23 +48,27 @@
 
             </td>
                 <td class="border border-gray-400 px-4 py-2 nombre-comercial">{{ $empresa->nombre_comercial }}</td>
-                <td class="border border-gray-400 px-4 py-2">{{ $empresa->logo }}</td>
-                <td class="border border-gray-400 px-4 py-2 flex items-center">
-                    <form class="mr-2" action="{{ route('empresas.edit', $empresa->id) }}">
-                        @csrf
-                        <a href="{{ route('empresas.edit', $empresa->id) }}" class="text-blue-500 hover:underline text-bold mr-2">Editar</a>
-                    </form>
-                    <!-- En lugar de eliminar, inhabilitar/habilitar -->
-                        <form id="toggle-form-{{ $empresa->id }}" action="{{ route('empresas.toggle', $empresa->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            @if ($empresa->active)
-                                <button type="submit" class="text-gray-500 hover:underline text-bold">Inhabilitar</button>
-                            @else
-                                <button type="submit" class="text-green-500 hover:underline text-bold">Habilitar</button>
-                            @endif
-                        </form>
+                <td class="border border-gray-400 px-4 py-2 flex items-center justify-center">
+                    <img src="{{ asset($empresa->logo) }}" alt="Logo de la empresa" class="h-16 w-auto">
                 </td>
+                    <td class="border border-gray-400 px-4 py-2">
+                        <div class="flex justify-center">
+                            <form class="mr-2" action="{{ route('empresas.edit', $empresa->id) }}">
+                                @csrf
+                                <a href="{{ route('empresas.edit', $empresa->id) }}" class="text-blue-500 hover:underline text-bold mr-2">Editar</a>
+                            </form>
+                            <!-- En lugar de eliminar, inhabilitar/habilitar -->
+                            <form id="toggle-form-{{ $empresa->id }}" action="{{ route('empresas.toggle', $empresa->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                @if ($empresa->active)
+                                    <button type="submit" class="text-gray-500 hover:underline text-bold">Inhabilitar</button>
+                                    @else
+                                    <button type="submit" class="text-green-500 hover:underline text-bold">Habilitar</button>
+                                @endif
+                            </form>
+                        </div>
+                    </td>
             </tr>
             @endforeach
         </tbody>

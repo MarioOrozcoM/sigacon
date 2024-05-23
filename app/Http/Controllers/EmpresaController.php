@@ -63,12 +63,29 @@ class EmpresaController extends Controller
         'fecha_resolucion' => 'nullable|date',
         'rangos_numeracion' => 'nullable|string|max:20',
         'observaciones' => 'nullable|string|max:250',
-        'logo' => 'nullable|string|max:250',
+        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'tamano_empresa' => 'nullable|string|in:Grande,Mediana,Pequeña,Micro',
         ]);
 
+        $data = $request->all();
+
+        // Manejar la subida del archivo
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $nombreArchivo = time() . '_' . $file->getClientOriginalName();
+            // Guardar la imagen en la carpeta public/images
+            if ($file->move(public_path('images'), $nombreArchivo)) {
+                // Guardar la ruta relativa en la base de datos
+                $data['logo'] = '/images/' . $nombreArchivo;
+            } else {
+                return redirect()->back()->withErrors(['logo' => 'Error al subir la imagen']);
+            }
+        }
+            
+
+
         // Crear una nueva empresa
-        Empresa::create($request->all());
+        Empresa::create($data);
 
         // Redireccionar con un mensaje de éxito
         return redirect()->route('empresas.index')->with('success', 'Empresa creada correctamente.');
