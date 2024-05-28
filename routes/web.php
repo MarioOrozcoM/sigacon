@@ -5,6 +5,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\ExcelEmpresaController;
 use App\Http\Controllers\EmpresaController;
 
 /*
@@ -101,6 +102,9 @@ Route::put('users/{user}', [UserController::class, 'update'])->name('users.updat
 
 // Ruta para descargar el Excel de un usuario específico
 Route::get('/download-excel/{userId}', [ExcelController::class, 'downloadExcel'])->name('download.excel');
+//Ruta para descargar el Excel de una empresa específica
+Route::get('/download-excel-empresa/{empresaId}', [ExcelEmpresaController::class, 'downloadExcelEmpresa'])->name('download.excel.empresa');
+
 
 Route::get('/get-states/{country_id}', [UserController::class, 'getStates'])->name('get.states');
 

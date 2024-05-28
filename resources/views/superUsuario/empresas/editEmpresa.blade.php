@@ -167,14 +167,14 @@
 
         </div>
         <div class="mb-4">
-    <label for="logo" class="block text-gray-700 text-sm font-bold mb-2">Logotipo:</label>
-    @if($empresa->logo)
-        <div class="mb-4">
-            <p class="text-sm text-gray-600">Archivo actual: {{ $empresa->logo }}</p>
+                <label for="logo" class="block text-gray-700 text-sm font-bold mb-2">Logotipo:</label>
+                @if($empresa->logo)
+                        <div class="mb-4">
+                        <p class="text-sm text-gray-600">Archivo actual: {{ $empresa->logo }}</p>
+                        </div>
+                @endif
+                <input type="file" id="logo" name="logo" class="border border-gray-400 rounded-md py-2 px-3 w-full">
         </div>
-    @endif
-    <input type="file" id="logo" name="logo" class="border border-gray-400 rounded-md py-2 px-3 w-full">
-</div>
 
 
         <div class="mb-4">
@@ -189,8 +189,13 @@
         <div class="mt-8">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Actualizar Empresa</button>
         </div>
-    </div> <!-- Fin Columna derecha -->
+
         </form>
+                <!-- Enlace para descargar el archivo Excel -->
+                <div class=" mt-8">
+                        <a href="{{ route('download.excel.empresa', ['empresaId' => $empresa->id]) }}" class="bg-green-300 hover:bg-green-400 text-black font-bold py-2 px-4 rounded">Descargar Excel</a>
+                </div>
+        </div> <!-- Fin Columna derecha -->
 
 </div>
 <!-- Fin Formulario editar Empresa -->
