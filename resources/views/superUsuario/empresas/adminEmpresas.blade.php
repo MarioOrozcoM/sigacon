@@ -32,7 +32,7 @@
     <!-- Lista de Empresas -->
     <table class="w-full border-collapse border border-gray-400">
         <thead>
-            <tr>
+            <tr class="uppercase">
                 <th class="border border-gray-400 px-4 py-2 w-1/6">Código Empresa</th>
                 <th class="border border-gray-400 px-4 py-2 w-1/3">Nombre Comercial</th>
                 <th class="border border-gray-400 px-4 py-2 w-1/4">Logotipo</th>

@@ -65,6 +65,10 @@ Route::get('/crear_editar_catalogos', function () {
 //     return view('superUsuario.adminUsers');
 // });
 
+Route::get('/adminCopropiedades', function (){
+    return view('superUsuario.copropiedades.adminCopropiedades');
+});
+
 
 
 

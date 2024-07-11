@@ -33,7 +33,7 @@
     <!-- Lista de usuarios -->
     <table class="w-full border-collapse border border-gray-400">
         <thead>
-            <tr>
+            <tr class="uppercase">
                 <th class="border border-gray-400 px-4 py-2">Nombre</th>
                 <th class="border border-gray-400 px-4 py-2">Email</th>
                 <th class="border border-gray-400 px-4 py-2">Rol</th>
